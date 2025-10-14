@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Notes de version et feuille de route AutoCalc OptiDevis">
+  <title>Notes de version - AutoCalc OptiDevis</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="images/icon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+        <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+      </div>
+      <ul class="nav-menu">
+  <li><a href="index.html" class="active">Accueil</a></li>
+  <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+  <li><a href="tarifs.html">Tarifs</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="notes-de-version.html">Notes de version</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- En-tête -->
+  <section class="hero" style="padding: 80px 0;">
+    <div class="container" style="text-align: center;">
+      <h1 style="font-size: 3rem;">Notes de version & Feuille de route</h1>
+      <p style="max-width: 800px; margin: 1rem auto; font-size: 1.2rem;">
+        Découvrez les évolutions, améliorations et objectifs d’AutoCalc OptiDevis vers sa version Pro Cloud ERP.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section Audit -->
+  <section style="padding: 60px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom: 1rem;">🔍 Audit de maturité logicielle – Octobre 2025</h2>
+      <p style="max-width: 900px; margin: 0 auto 2rem; color: var(--text-gray); text-align:center;">
+        L’audit indépendant réalisé sur la version <strong>AutoCalc OptiDevis v2.5.7</strong> confirme un
+        <strong>niveau professionnel abouti</strong> (score global : 8.7 / 10).  
+        L’architecture Electron + Node.js est jugée robuste et prête pour une industrialisation cloud.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+        <div class="audit-card"><h3>Architecture</h3><p>9/10 — Modules isolés, stack moderne, maintenable.</p></div>
+        <div class="audit-card"><h3>Sécurité</h3><p>8/10 — BCrypt, tokens, sauvegardes automatiques.</p></div>
+        <div class="audit-card"><h3>UX / UI</h3><p>9/10 — Design cohérent, 20 thèmes, 5 modèles PDF.</p></div>
+        <div class="audit-card"><h3>Fonctionnalités</h3><p>9.5/10 — Cycle complet devis → facture, FEC, cloud.</p></div>
+      </div>
+
+      <div style="max-width: 900px; margin: 2rem auto; text-align:center;">
+        <p>
+          <strong>Recommandations clés :</strong>  
+          migration vers SQLite/PostgreSQL, API REST, multi-utilisateurs, signature électronique et tests CI/CD.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Evolutions Futures -->
+  <section style="padding: 80px 0;">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom: 2rem;">🚀 Évolutions prévues (v2.7+)</h2>
+      <p style="text-align:center; color: var(--text-gray); max-width: 900px; margin: 0 auto 3rem;">
+        Les fonctionnalités suivantes sont planifiées pour renforcer la productivité, la collaboration et la conformité réglementaire.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div class="card"><h3><i class="fas fa-boxes"></i> Gestion des stocks et alertes</h3><p>Suivi des niveaux, alertes automatiques et historique des mouvements.</p></div>
+        <div class="card"><h3><i class="fas fa-truck"></i> Gestion fournisseurs</h3><p>Base de contacts, prix négociés et bons de commande PDF automatisés.</p></div>
+        <div class="card"><h3><i class="fas fa-credit-card"></i> Paiements intégrés</h3><p>Liens Stripe/PayPal, suivi des paiements et mise à jour automatique du CA.</p></div>
+        <div class="card"><h3><i class="fas fa-users"></i> CRM client avancé</h3><p>Historique complet, rappels automatiques, segmentation et statistiques clients.</p></div>
+        <div class="card"><h3><i class="fas fa-brain"></i> IA et suggestions</h3><p>Optimisation automatique des devis et propositions de matériaux alternatifs.</p></div>
+        <div class="card"><h3><i class="fas fa-file-invoice"></i> Acomptes et factures partielles</h3><p>Gestion native des paiements échelonnés et facturation progressive.</p></div>
+        <div class="card"><h3><i class="fas fa-mobile"></i> Application mobile</h3><p>Mode responsive et app Android/iOS avec scan code-barres.</p></div>
+        <div class="card"><h3><i class="fas fa-chart-pie"></i> Rapports et exports</h3><p>Exports Excel/PDF personnalisés, prévisions et marges par chantier.</p></div>
+        <div class="card"><h3><i class="fas fa-ruler-combined"></i> Prise de mesures numérique</h3><p>Import de plans PDF et calculs automatiques de surfaces/volumes.</p></div>
+        <div class="card"><h3><i class="fas fa-sync"></i> Prix en temps réel</h3><p>Connexion API fournisseurs (Rexel, Point.P) pour actualisation automatique.</p></div>
+        <div class="card"><h3><i class="fas fa-chart-trend-up"></i> Prédiction de coûts IA</h3><p>Estimation intelligente basée sur l’historique des devis.</p></div>
+        <div class="card"><h3><i class="fas fa-copy"></i> Multi-devis et appels d’offres</h3><p>Comparaison côte-à-côte pour variantes de devis.</p></div>
+        <div class="card"><h3><i class="fas fa-plug"></i> Intégration comptable</h3><p>Export Chorus Pro, Sage, EBP, conformité facturation électronique 2026.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Plan d’industrialisation -->
+  <section style="padding: 80px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom: 2rem;">🏁 Plan d’industrialisation – Objectif 2026</h2>
+      <div style="max-width: 900px; margin: 0 auto;">
+        <ol style="line-height:1.8; color: var(--text-gray); font-size: 1.05rem;">
+          <li><strong>Présence professionnelle :</strong> site vitrine complet, CGU/RGPD, logo et identité visuelle unifiée.</li>
+          <li><strong>Licences & CRM :</strong> génération de clés produit, base clients et gestion des activations.</li>
+          <li><strong>Qualité logicielle :</strong> tests unitaires (Jest), CI/CD GitHub Actions, builds automatisés.</li>
+          <li><strong>Cloud & multi-utilisateurs :</strong> migration SQLite/PostgreSQL, API REST, rôles et audit log.</li>
+          <li><strong>Commercialisation :</strong> installeur signé, offres Solo/Pro/Entreprise, support professionnel.</li>
+        </ol>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <p style="max-width:700px; margin:0 auto;">
+          Ce plan vise à faire évoluer AutoCalc OptiDevis vers une suite complète <strong>ERP/CRM BTP Made in France</strong>, 
+          alliant simplicité locale et puissance collaborative cloud.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Essayez la version actuelle gratuitement</h2>
+        <p>Découvrez les fonctionnalités pro dès maintenant, sans engagement.</p>
+        <div class="cta-buttons">
+          <a href="https://uploadnow.io/s/1b472730-3fe0-47b1-a3a0-16cdf61e3f84" class="btn btn-primary btn-lg" target="_blank">
+            <i class="fas fa-download"></i> Télécharger AutoCalc OptiDevis v2.6.0
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg"><i class="fas fa-envelope"></i> Contactez-nous</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 — Développé par David VIEY — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

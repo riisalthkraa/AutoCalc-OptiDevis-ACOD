@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentation AutoCalc OptiDevis - Guides, tutoriels et captures d'écran">
+    <title>Documentation - AutoCalc OptiDevis</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <style>
+        .doc-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .doc-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .doc-category {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .doc-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .doc-category i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .doc-category h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-category p {
+            color: var(--text-gray);
+        }
+
+        .screenshots-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-card-content {
+            padding: 20px;
+        }
+
+        .screenshot-card-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .screenshot-card-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .video-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            padding-top: 56.25%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .video-card-content {
+            padding: 20px;
+        }
+
+        .video-card-content h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-card-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .download-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .download-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .download-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .download-content {
+            flex: 1;
+        }
+
+        .download-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .download-content p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .download-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 968px) {
+            .doc-categories,
+            .screenshots-gallery,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+                <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+            </div>
+            <ul class="nav-menu">
+  <li><a href="index.html" class="active">Accueil</a></li>
+  <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+  <li><a href="tarifs.html">Tarifs</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="notes-de-version.html">Notes de version</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Documentation & Ressources</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                Guides, tutoriels et captures d'écran pour vous aider à maîtriser AutoCalc OptiDevis
+            </p>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="doc-section">
+        <div class="container">
+            <div class="doc-categories">
+                <div class="doc-category">
+                    <i class="fas fa-book"></i>
+                    <h3>Guide de démarrage</h3>
+                    <p>Installation et configuration initiale en 10 minutes</p>
+                </div>
+
+                <div class="doc-category">
+                    <i class="fas fa-video"></i>
+                    <h3>Tutoriels vidéo</h3>
+                    <p>Vidéos explicatives pour chaque fonctionnalité</p>
+                </div>
+
+                <div class="doc-category">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>FAQ</h3>
+                    <p>Réponses aux questions les plus fréquentes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Captures d'écran</h2>
+                <p>Découvrez l'interface en images</p>
+            </div>
+
+            <div class="screenshots-gallery">
+                <div class="screenshot-card">
+                    <img src="screenshots/Acceuil vendeur-conseil.png" alt="Accueil Vendeur/Conseil">
+                    <div class="screenshot-card-content">
+                        <h3>Accueil Vendeur/Conseil</h3>
+                        <p>Interface simplifiée pour les vendeurs avec KPIs essentiels : devis en attente, devis créés cette semaine, et top 10 des articles les plus recherchés.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Tableau de bord Admin (Mode Admin).png" alt="Tableau de bord Admin">
+                    <div class="screenshot-card-content">
+                        <h3>Tableau de Bord Administrateur</h3>
+                        <p>Visualisation complète de votre activité : CA du mois, devis en attente, factures en retard, taux de conversion et graphiques interactifs.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Recherche.png" alt="Recherche de matériaux">
+                    <div class="screenshot-card-content">
+                        <h3>Recherche de Matériaux</h3>
+                        <p>Recherche ultra-rapide avec filtres par catégorie, scanner code-barres intégré et mode "ajout rapide" pour gagner du temps.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Nouveau Devis.png" alt="Création de devis">
+                    <div class="screenshot-card-content">
+                        <h3>Création de Devis</h3>
+                        <p>Interface intuitive pour créer vos devis avec calculs automatiques, gestion client et prévisualisation en temps réel des totaux.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Devis.png" alt="Gestion des devis">
+                    <div class="screenshot-card-content">
+                        <h3>Gestion des Devis</h3>
+                        <p>Vue d'ensemble de tous vos devis avec filtres par statut, recherche rapide et actions en un clic (modifier, dupliquer, transformer en facture).</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Ecran factures (Mode Admin).png" alt="Gestion des factures">
+                    <div class="screenshot-card-content">
+                        <h3>Gestion des Factures</h3>
+                        <p>Suivi complet de vos factures avec alertes automatiques pour les retards de paiement et export comptable FEC pour votre expert-comptable.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Ecran CA du moi (Mode Admin).png" alt="CA du mois">
+                    <div class="screenshot-card-content">
+                        <h3>Chiffre d'Affaires Mensuel</h3>
+                        <p>Suivi détaillé de votre CA avec évolution sur 12 mois, comparaison mensuelle et possibilité d'imprimer des rapports mensuels.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Catalogue (Mode Admin).png" alt="Catalogue matériaux">
+                    <div class="screenshot-card-content">
+                        <h3>Catalogue de Matériaux</h3>
+                        <p>Gestion complète de votre catalogue : ajout, modification, import/export de données et recherche multicritères pour retrouver vos articles.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Ecran Config (Entete - logo - 17 Themes pour le logiciel et 4 templates DevisFacture).png" alt="Configuration">
+                    <div class="screenshot-card-content">
+                        <h3>Configuration Personnalisée</h3>
+                        <p>17 thèmes pour l'interface et 5 templates pour vos PDF. Ajoutez votre logo, personnalisez l'en-tête et adaptez le logiciel à votre charte graphique.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Ecran config (changement mot de passe, config SMTP et cloud).png" alt="Configuration avancée">
+                    <div class="screenshot-card-content">
+                        <h3>Configuration Avancée</h3>
+                        <p>Gestion des mots de passe, configuration SMTP pour l'envoi d'emails et paramètres de synchronisation cloud pour le travail multi-postes.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="screenshots/Ecran mot de passe Mode Administrateur.png" alt="Authentification">
+                    <div class="screenshot-card-content">
+                        <h3>Authentification Sécurisée</h3>
+                        <p>Protection par mot de passe pour accéder aux fonctions d'administration. Changez votre mot de passe à tout moment pour plus de sécurité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutorials -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tutoriels Vidéo</h2>
+                <p>Apprenez à utiliser AutoCalc OptiDevis en quelques minutes</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Installation et premier lancement</h4>
+                        <p><i class="fas fa-clock"></i> 5 min</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Créer votre premier devis</h4>
+                        <p><i class="fas fa-clock"></i> 8 min</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Gérer votre catalogue de matériaux</h4>
+                        <p><i class="fas fa-clock"></i> 10 min</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Scanner des codes-barres</h4>
+                        <p><i class="fas fa-clock"></i> 4 min</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Transformer un devis en facture</h4>
+                        <p><i class="fas fa-clock"></i> 3 min</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="video-play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h4>Configurer la synchronisation cloud</h4>
+                        <p><i class="fas fa-clock"></i> 7 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads -->
+    <section class="download-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Téléchargements</h2>
+                <p>Documentation PDF et fichiers d'aide</p>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Documentation Complète PDF</h3>
+                    <p>Guide utilisateur complet avec captures d'écran et explications détaillées de toutes les fonctionnalités.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> PDF</span>
+                        <span><i class="fas fa-weight"></i> 12.5 MB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/DOCUMENTATION%20COMPL%C3%88TE%20-%20AUTOCALC%20OPTIDEVIS%20v2.5.7.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Documentation API</h3>
+                    <p>Documentation technique pour les développeurs souhaitant intégrer AutoCalc OptiDevis avec d'autres systèmes.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> PDF</span>
+                        <span><i class="fas fa-weight"></i> 2.8 MB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/Documentation%20API%20-%20AutoCalc%20OptiDevis%20v2.5.2.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Exemple de Devis PDF</h3>
+                    <p>Visualisez un exemple de devis généré par AutoCalc OptiDevis avec le template "Corporate Élégant".</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> PDF</span>
+                        <span><i class="fas fa-weight"></i> 145 KB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/devis_David%20Viey_2025-10-12.pdf" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Exemple de Facture PDF</h3>
+                    <p>Découvrez un exemple de facture professionnelle générée automatiquement depuis un devis accepté.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> PDF</span>
+                        <span><i class="fas fa-weight"></i> 152 KB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/facture_FACT-2025-001_David%20Viey.pdf" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Rapport CA Mensuel Excel <span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; margin-left: 10px;">NOUVEAU v2.6.0</span></h3>
+                    <p>Rapport mensuel de chiffre d'affaires avec détails, statistiques et graphiques exportables en Excel.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> XLSX</span>
+                        <span><i class="fas fa-weight"></i> 45 KB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/ca-mensuel-2025-10.xlsx" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Indicateurs de Rentabilité Excel <span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; margin-left: 10px;">NOUVEAU v2.6.0</span></h3>
+                    <p>4 KPIs de rentabilité détaillés : CA, Charges, Bénéfices et Taux de marge avec export Excel pour analyse approfondie.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> XLSX</span>
+                        <span><i class="fas fa-weight"></i> 38 KB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/rentabilite-2025-10.xlsx" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="download-content">
+                    <h3>Graphiques & Statistiques PDF</h3>
+                    <p>Exemples de graphiques générés automatiquement : CA mensuel, top produits, évolution.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> PDF</span>
+                        <span><i class="fas fa-weight"></i> 280 KB</span>
+                        <span><i class="fas fa-language"></i> Français</span>
+                    </div>
+                </div>
+                <a href="IMAGE%20DOCS%20POUR%20SITE/GRAPHE%20rapport-ca-2025-10.pdf" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Besoin d'aide supplémentaire ?</h2>
+                <p>Notre équipe support est là pour vous accompagner</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope"></i> Contacter le support
+                    </a>
+                    <a href="tarifs.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-download"></i> Télécharger l'essai
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+                        <p>Le logiciel professionnel pour artisans du bâtiment</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="notes-de-version.html">Notes de version</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutoriels vidéo</a></li>
+                        <li><a href="#">Support technique</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Développé par David VIEY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

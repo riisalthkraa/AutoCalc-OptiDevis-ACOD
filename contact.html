@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez-nous pour toute question sur AutoCalc OptiDevis">
+    <title>Contact - AutoCalc OptiDevis</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <style>
+        .contact-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-method-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-method-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .contact-method-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method-content p {
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .contact-method-content a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-method-content a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-wrapper {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-wrapper h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-wrapper > p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label .required {
+            color: var(--danger);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .form-submit .btn {
+            flex: 1;
+        }
+
+        .form-message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+            display: block;
+        }
+
+        .support-hours {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .support-hours h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .support-hours ul {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .support-hours li {
+            padding: 0.4rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .map-section {
+            padding: 0;
+            height: 400px;
+            background: var(--bg-light);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info,
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .form-submit {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+                <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+            </div>
+<ul class="nav-menu">
+  <li><a href="index.html" class="active">Accueil</a></li>
+  <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+  <li><a href="tarifs.html">Tarifs</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="notes-de-version.html">Notes de version</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Contactez-nous</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                Une question ? Un besoin spécifique ? Notre équipe est là pour vous répondre
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Nos coordonnées</h2>
+                    <p>
+                        Vous pouvez nous contacter par téléphone, email ou via le formulaire ci-contre.
+                        Nous nous engageons à vous répondre dans les 24 heures ouvrées.
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h3>Téléphone</h3>
+                                <p><a href="tel:+33123456789">+33 7</a></p>
+                                <p style="font-size: 0.9rem;">Lun-Ven : 9h-18h</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h3>Email</h3>
+                                <p><a href="mailto:Riisalth@hotmail.fr">Riisalth@hotmail.fr</a></p>
+                                <p style="font-size: 0.9rem;">Réponse sous 24h</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h3>Adresse</h3>
+                                <p>99, Rue Michel Montaigne<br>33350 Castillon-la-Bataille, France</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h3>Support Technique</h3>
+                                <p><a href="mailto:support@optidevis.fr">Riisalthkraal@gmail.com</a></p>
+                                <p style="font-size: 0.9rem;">Support 7j/7 pour clients Pro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="support-hours">
+                        <h4><i class="fas fa-clock"></i> Horaires d'ouverture</h4>
+                        <ul>
+                            <li>
+                                <span>Lundi - Vendredi</span>
+                                <strong>9h00 - 18h00</strong>
+                            </li>
+                            <li>
+                                <span>Samedi</span>
+                                <strong>10h00 - 16h00</strong>
+                            </li>
+                            <li>
+                                <span>Dimanche</span>
+                                <strong>Fermé</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Envoyez-nous un message</h2>
+                    <p>Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais</p>
+
+                    <div id="form-message" class="form-message"></div>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Entreprise</label>
+                            <input type="text" id="company" name="company" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet <span class="required">*</span></label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">-- Sélectionnez un sujet --</option>
+                                <option value="demo">Demande de démonstration</option>
+                                <option value="quote">Demande de devis</option>
+                                <option value="support">Support technique</option>
+                                <option value="sales">Question commerciale</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Envoyer le message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Vous préférez essayer directement ?</h2>
+                <p>Téléchargez AutoCalc OptiDevis et testez-le gratuitement pendant 60 jours</p>
+                <div class="cta-buttons">
+                    <a href="tarifs.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-download"></i> Télécharger l'essai gratuit 60 jours
+                    </a>
+                    <a href="documentation.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-book"></i> Consulter la documentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+                        <p>Le logiciel professionnel pour artisans du bâtiment, magasin de bricolage, autres</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="notes-de-version.html">Notes de version</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutoriels vidéo</a></li>
+                        <li><a href="#">Support technique</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Développé par David VIEY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formMessage = document.getElementById('form-message');
+            const submitBtn = this.querySelector('button[type="submit"]');
+
+            // Désactiver le bouton pendant l'envoi
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+            // Récupérer les données du formulaire
+            const formData = {
+                name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Simulation d'envoi (à remplacer par un vrai endpoint)
+            setTimeout(() => {
+                // Afficher le message de succès
+                formMessage.className = 'form-message success';
+                formMessage.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Message envoyé avec succès !</strong> Nous vous répondrons dans les plus brefs délais.';
+
+                // Réinitialiser le formulaire
+                this.reset();
+
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+
+                // Cacher le message après 5 secondes
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+
+            }, 1500);
+
+            // En cas d'erreur, afficher :
+            // formMessage.className = 'form-message error';
+            // formMessage.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Erreur :</strong> Une erreur est survenue lors de l\'envoi. Veuillez réessayer.';
+        });
+    </script>
+</body>
+</html>

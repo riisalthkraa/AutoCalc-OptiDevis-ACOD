@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez toutes les fonctionnalités d'AutoCalc OptiDevis - Le logiciel complet pour vos devis et factures">
+    <title>Fonctionnalités - AutoCalc OptiDevis</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <style>
+        .feature-detail-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .feature-detail-section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .feature-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-detail.reverse {
+            direction: rtl;
+        }
+
+        .feature-detail.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-detail-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-detail-content ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-detail-content li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        .feature-detail-content li i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .feature-detail-image img {
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            border: 3px solid var(--border-color);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .feature-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-detail.reverse {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+                <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+            </div>
+            <ul class="nav-menu">
+  <li><a href="index.html" class="active">Accueil</a></li>
+  <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+  <li><a href="tarifs.html">Tarifs</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="notes-de-version.html">Notes de version</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Toutes les fonctionnalités</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                Un logiciel complet pour gérer vos devis, factures et votre activité au quotidien
+            </p>
+        </div>
+    </section>
+
+    <!-- Calculs automatiques -->
+    <section class="feature-detail-section" id="calculs">
+        <div class="container">
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Gain de temps</span>
+                    <h2>Calculs Automatiques Intelligents</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Fini les calculs manuels et les erreurs ! AutoCalc OptiDevis calcule automatiquement
+                        les quantités de matériaux nécessaires en fonction de vos saisies.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Calcul de surface (m²) avec dimensions personnalisées</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Calcul de volume (m³) pour béton, terre, graviers...</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Calcul linéaire (m) pour plinthes, bordures, tuyaux...</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Conversion automatique selon la densité des matériaux</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ajustement intelligent du nombre d'unités nécessaires</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mode "Ajout rapide" : saisissez "75m² plâtre" et c'est calculé !</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Recherche.png" alt="Calculs automatiques">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scanner code-barres -->
+    <section class="feature-detail-section" id="scanner">
+        <div class="container">
+            <div class="feature-detail reverse">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Innovation</span>
+                    <h2>Scanner de Code-Barres Intégré</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Accélérez la création de vos devis en scannant directement les codes-barres
+                        de vos produits avec votre webcam ou scanner dédié.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Compatible webcam et scanners USB professionnels</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Reconnaissance instantanée des codes EAN13, UPC, Code128...</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ajout automatique au devis en cours</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Associez vos propres codes-barres à vos matériaux</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Idéal pour les magasins et négoces de matériaux</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Nouveau Devis.png" alt="Scanner code-barres">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tableau de bord -->
+    <section class="feature-detail-section" id="dashboard">
+        <div class="container">
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Pilotage</span>
+                    <h2>Tableau de Bord Professionnel</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Suivez votre activité en temps réel avec des indicateurs clés et des graphiques détaillés.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>CA du mois en temps réel avec évolution sur 12 mois</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Taux de conversion devis → factures</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Devis en attente avec alertes visuelles</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Factures en retard à relancer</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Top 20 produits les plus vendus</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Graphiques interactifs par catégorie</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-star"></i>
+                            <span><strong>NOUVEAUTÉ v2.6.0 :</strong> 4 KPIs de rentabilité (CA, Charges, Bénéfices, Taux de marge) avec export Excel</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Tableau de bord Admin (Mode Admin).png" alt="Tableau de bord">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF professionnels -->
+    <section class="feature-detail-section" id="pdf">
+        <div class="container">
+            <div class="feature-detail reverse">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Impression</span>
+                    <h2>PDF Professionnels Personnalisables</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Créez des devis et factures élégants qui valorisent votre image professionnelle.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>5 templates professionnels au choix (Corporate, Moderne, Minimaliste...)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ajoutez votre logo et personnalisez l'en-tête</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mentions légales automatiques (SIRET, TVA...)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Export PDF haute qualité</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Impression directe depuis le logiciel</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Envoi par email avec SMTP configurable</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Devis.png" alt="PDF professionnels">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mode Admin & Vendeur -->
+    <section class="feature-detail-section" id="modes">
+        <div class="container">
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Gestion d'équipe</span>
+                    <h2>Mode Administrateur & Vendeur</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Gérez votre équipe avec deux niveaux d'accès distincts et sécurisés.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Mode Vendeur :</strong> Création de devis, recherche produits, statistiques personnelles</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Mode Admin :</strong> Accès complet + gestion catalogue + facturation</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Authentification par mot de passe sécurisé (bcrypt)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Changement de mot de passe à tout moment</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Historique des actions par utilisateur</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Idéal pour les équipes de vente en magasin</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Acceuil vendeur-conseil.png" alt="Mode vendeur">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synchronisation Cloud -->
+    <section class="feature-detail-section" id="cloud">
+        <div class="container">
+            <div class="feature-detail reverse">
+                <div class="feature-detail-content">
+                    <span class="feature-badge">Collaboration</span>
+                    <h2>Synchronisation Réseau Local</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">
+                        Travaillez sur plusieurs postes avec une synchronisation automatique de vos données.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Synchronisation automatique sur réseau local (UNC)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gestion intelligente des conflits</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Intervalle de synchronisation configurable</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Historique des synchronisations</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Accédez à vos devis depuis tous vos ordinateurs</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Configuration simple en 5 minutes</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-detail-image">
+                    <img src="screenshots/Ecran config (changement mot de passe, config SMTP et cloud).png" alt="Synchronisation cloud">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Convaincu ? Testez gratuitement !</h2>
+                <p>Profitez de toutes ces fonctionnalités pendant 60 jours, sans engagement</p>
+                <div class="cta-buttons">
+                    <a href="tarifs.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-download"></i> Télécharger l'essai gratuit
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-envelope"></i> Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+                        <p>Le logiciel professionnel pour artisans du bâtiment</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="notes-de-version.html">Notes de version</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutoriels vidéo</a></li>
+                        <li><a href="#">Support technique</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.htlm">Mentions légales</a></li>
+                        <li><a href="cgv.htlm">CGV</a></li>
+                        <li><a href="politique-confidentialite">Politique de confidentialité</a></li>
+                        <li><a href="#">RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Développé par David VIEY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

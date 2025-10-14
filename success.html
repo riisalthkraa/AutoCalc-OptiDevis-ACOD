@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement réussi - AutoCalc OptiDevis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <style>
+        .success-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 20px;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.6s ease 0.2s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon i {
+            font-size: 60px;
+            color: white;
+        }
+
+        .success-card h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .success-card p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            color: #10b981;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #374151;
+        }
+
+        .info-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+            transform: translateY(-2px);
+        }
+
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #10b981;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h1>Paiement réussi !</h1>
+            <p>Merci pour votre achat. Votre licence AutoCalc OptiDevis a été générée avec succès.</p>
+
+            <div class="info-box">
+                <h3>
+                    <i class="fas fa-envelope"></i>
+                    Prochaines étapes
+                </h3>
+                <ul>
+                    <li>Vous allez recevoir un email avec votre clé de licence dans quelques instants</li>
+                    <li>Vérifiez votre boîte mail (et les spams si besoin)</li>
+                    <li>Téléchargez le logiciel si ce n'est pas déjà fait</li>
+                    <li>Installez AutoCalc OptiDevis</li>
+                    <li>Activez votre licence dans Paramètres > Licence</li>
+                </ul>
+            </div>
+
+            <div class="info-box" style="background: #fff7ed; border-color: #f59e0b;">
+                <h3 style="color: #f59e0b;">
+                    <i class="fas fa-lightbulb"></i>
+                    Bon à savoir
+                </h3>
+                <ul>
+                    <li style="color: #92400e;">Conservez précieusement l'email avec votre clé</li>
+                    <li style="color: #92400e;">Votre licence est valide à vie</li>
+                    <li style="color: #92400e;">Mises à jour gratuites incluses</li>
+                    <li style="color: #92400e;">Support technique : Riisalth@hotmail.fr</li>
+                </ul>
+            </div>
+
+            <div class="btn-group">
+                <a href="https://uploadnow.io/f/3TxgD5n" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-download"></i>
+                    Télécharger le logiciel
+                </a>
+                <a href="documentation.html" class="btn btn-secondary">
+                    <i class="fas fa-book"></i>
+                    Voir la documentation
+                </a>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #9ca3af;">
+                Session ID: <span id="session-id" style="font-family: monospace;">Chargement...</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer le session_id de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+
+        if (sessionId) {
+            document.getElementById('session-id').textContent = sessionId.substring(0, 20) + '...';
+        } else {
+            document.getElementById('session-id').textContent = 'Non disponible';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tarifs AutoCalc OptiDevis - Essai gratuit 60 jours - Licence à partir de 99€">
+    <title>Tarifs - AutoCalc OptiDevis</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <style>
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 3px solid transparent;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "Le plus populaire";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .pricing-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price sup {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .pricing-period {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+
+        .pricing-features li i {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        .pricing-features li.disabled {
+            opacity: 0.4;
+        }
+
+        .pricing-features li.disabled i {
+            color: var(--text-light);
+        }
+
+        .pricing-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .faq-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem 2rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .guarantee-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .guarantee-icon i {
+            font-size: 3rem;
+            color: var(--success);
+        }
+
+        .guarantee-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantee-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 968px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+                <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+            </div>
+            <ul class="nav-menu">
+  <li><a href="index.html" class="active">Accueil</a></li>
+  <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+  <li><a href="tarifs.html">Tarifs</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="notes-de-version.html">Notes de version</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Tarifs transparents et simples</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                Choisissez la formule qui correspond à votre activité. Essai gratuit 60 jours, sans engagement.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Essai Gratuit -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="pricing-title">Essai Gratuit</h3>
+                        <div class="pricing-price">0<sup>€</sup></div>
+                        <p class="pricing-period">60 jours - Sans engagement</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Toutes les fonctionnalités incluses</li>
+                        <li><i class="fas fa-check"></i> Devis & factures illimités</li>
+                        <li><i class="fas fa-check"></i> Catalogue de matériaux complet</li>
+                        <li><i class="fas fa-check"></i> Scanner code-barres</li>
+                        <li><i class="fas fa-check"></i> Tableau de bord & statistiques</li>
+                        <li><i class="fas fa-check"></i> Support par email</li>
+                        <li><i class="fas fa-check"></i> Synchronisation cloud</li>
+                        <li><i class="fas fa-check"></i> Pas de carte bancaire requise</li>
+                    </ul>
+
+                    <div class="pricing-cta">
+                        <a href="https://uploadnow.io/s/1b472730-3fe0-47b1-a3a0-16cdf61e3f84" class="btn btn-outline btn-lg" style="color: var(--primary-color); border-color: var(--primary-color);" target="_blank">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Licence Standard -->
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="pricing-title">Licence Standard</h3>
+                        <div class="pricing-price">99<sup>€</sup></div>
+                        <p class="pricing-period">Achat unique - 1 poste</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Toutes les fonctionnalités incluses</li>
+                        <li><i class="fas fa-check"></i> Devis & factures illimités</li>
+                        <li><i class="fas fa-check"></i> Catalogue de matériaux complet</li>
+                        <li><i class="fas fa-check"></i> Scanner code-barres</li>
+                        <li><i class="fas fa-check"></i> Tableau de bord & statistiques</li>
+                        <li><i class="fas fa-check"></i> Support prioritaire par email & téléphone</li>
+                        <li><i class="fas fa-check"></i> Synchronisation cloud</li>
+                        <li><i class="fas fa-check"></i> Mises à jour gratuites à vie</li>
+                    </ul>
+
+                    <div class="pricing-cta">
+                        <a href="https://kraalist.gumroad.com/l/jrtcz" class="btn btn-primary" target="_blank">
+  <i class="fas fa-shopping-cart"></i> Acheter maintenant
+</a>
+                    </div>
+                </div>
+
+                <!-- Licence Pro -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="pricing-title">Licence Pro</h3>
+                        <div class="pricing-price">249<sup>€</sup></div>
+                        <p class="pricing-period">Achat unique - 5 postes</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Toutes les fonctionnalités incluses</li>
+                        <li><i class="fas fa-check"></i> Devis & factures illimités</li>
+                        <li><i class="fas fa-check"></i> Catalogue de matériaux complet</li>
+                        <li><i class="fas fa-check"></i> Scanner code-barres</li>
+                        <li><i class="fas fa-check"></i> Tableau de bord & statistiques</li>
+                        <li><i class="fas fa-check"></i> Support prioritaire 7j/7</li>
+                        <li><i class="fas fa-check"></i> Synchronisation cloud multi-postes</li>
+                        <li><i class="fas fa-check"></i> Mises à jour gratuites à vie</li>
+                        <li><i class="fas fa-check"></i> <strong>Installation & formation incluses</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Import de votre catalogue existant</strong></li>
+                    </ul>
+
+                    <div class="pricing-cta">
+                        <a href="https://kraalist.gumroad.com/l/ejcaz" class="btn btn-primary" target="_blank">
+  <i class="fas fa-shopping-cart"></i> Acheter maintenant
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.2rem; color: var(--text-gray); max-width: 800px; margin: 0 auto;">
+                    <i class="fas fa-info-circle" style="color: var(--primary-color);"></i>
+                    <strong>Tous les tarifs sont HT.</strong> TVA applicable selon la législation en vigueur.
+                    Paiement sécurisé par carte bancaire ou virement bancaire.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>Garantie Satisfait ou Remboursé 60 jours</h2>
+            <p>
+                Testez AutoCalc OptiDevis en toute tranquillité. Si le logiciel ne vous convient pas,
+                nous vous remboursons intégralement, sans question, pendant 60 jours après votre achat.
+            </p>
+            <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white;">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions fréquentes</h2>
+                <p>Vous avez des questions ? Nous avons les réponses !</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>L'essai gratuit nécessite-t-il une carte bancaire ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Non, absolument pas ! L'essai gratuit de 60 jours ne nécessite aucune carte bancaire.
+                            Téléchargez simplement le logiciel et commencez à l'utiliser immédiatement avec toutes
+                            les fonctionnalités débloquées.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Que se passe-t-il après les 60 jours d'essai ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Si vous ne souscrivez pas à une licence, le logiciel passera en mode lecture seule.
+                            Vous pourrez toujours consulter vos devis et factures, mais vous ne pourrez plus en créer
+                            de nouveaux. Toutes vos données sont conservées et disponibles si vous décidez d'acheter
+                            une licence ultérieurement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Les mises à jour sont-elles vraiment gratuites à vie ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui ! Une fois que vous achetez une licence, toutes les mises à jour futures sont incluses
+                            gratuitement, à vie. Vous recevrez automatiquement les nouvelles fonctionnalités, les corrections
+                            de bugs et les améliorations de sécurité sans frais supplémentaires.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Puis-je utiliser le logiciel sur plusieurs ordinateurs ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            La licence Standard est valable pour 1 poste. Si vous avez besoin d'installer le logiciel
+                            sur plusieurs ordinateurs, optez pour la Licence Pro (5 postes). La synchronisation cloud
+                            vous permet de partager vos données entre tous vos postes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Mes données sont-elles sécurisées ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolument ! Vos données sont stockées localement sur votre ordinateur et ne transitent jamais
+                            par nos serveurs. La synchronisation cloud utilise votre propre réseau local. Les mots de passe
+                            sont chiffrés avec bcrypt. Vous gardez le contrôle total de vos données.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Proposez-vous des formations ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            La Licence Pro inclut une formation d'installation et de prise en main. Pour les licences Standard,
+                            nous proposons une documentation complète, des tutoriels vidéo et un support technique réactif
+                            pour vous accompagner dans la prise en main du logiciel.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels sont les moyens de paiement acceptés ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nous acceptons les paiements par carte bancaire (Visa, Mastercard, American Express) et
+                            par virement bancaire. Toutes les transactions sont sécurisées et conformes aux normes PCI-DSS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à démarrer ?</h2>
+                <p>Testez gratuitement AutoCalc OptiDevis pendant 60 jours, sans engagement</p>
+                <div class="cta-buttons">
+                    <a href="https://uploadnow.io/f/3TxgD5n" class="btn btn-primary btn-lg" target="_blank">
+                        <i class="fas fa-download"></i> Télécharger l'essai gratuit
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-envelope"></i> Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+                        <p>Le logiciel professionnel pour artisans du bâtiment</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="notes-de-version.html">Notes de version</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutoriels vidéo</a></li>
+                        <li><a href="#">Support technique</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgv.html">CGV</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Développé par David VIEY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Fermer les autres items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle l'item courant
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
