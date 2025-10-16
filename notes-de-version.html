@@ -9,6 +9,65 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="images/icon.ico" type="image/x-icon">
+  <style>
+    .audit-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .audit-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .audit-card h3 {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    .audit-card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .card h3 {
+      color: var(--text-dark);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3 i {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+    }
+    .card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -35,10 +94,24 @@
   <!-- En-tête -->
   <section class="hero" style="padding: 80px 0;">
     <div class="container" style="text-align: center;">
-      <h1 style="font-size: 3rem;">Notes de version & Feuille de route</h1>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Notes de version & Feuille de route</h1>
       <p style="max-width: 800px; margin: 1rem auto; font-size: 1.2rem;">
-        Découvrez les évolutions, améliorations et objectifs d’AutoCalc OptiDevis vers sa version Pro Cloud ERP.
+        Découvrez les évolutions, améliorations et objectifs d'AutoCalc OptiDevis vers sa version Pro Cloud ERP.
       </p>
+
+      <!-- Progression du projet -->
+      <div style="max-width: 700px; margin: 2.5rem auto; background: rgba(255,255,255,0.95); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h3 style="font-size: 1.3rem; color: var(--text-dark); margin: 0;">Avancement du projet</h3>
+          <span style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">60%</span>
+        </div>
+        <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 15px;">
+          <div style="width: 60%; height: 100%; background: linear-gradient(90deg, var(--primary-color), var(--primary-light)); border-radius: 10px; transition: width 0.5s ease;"></div>
+        </div>
+        <p style="color: var(--text-gray); font-size: 0.95rem; margin: 0; line-height: 1.6;">
+          <strong>Phase actuelle :</strong> Version stable 2.6.0 • Préparation industrialisation 2026
+        </p>
+      </div>
     </div>
   </section>
 
@@ -135,8 +208,61 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+            <p>Le logiciel professionnel de gestion de devis et factures pour artisans du bâtiment</p>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.6;">
+              <i class="fas fa-map-marker-alt"></i> 99 Rue Michel Montaigne<br>
+              <span style="margin-left: 20px;">33350 Castillon-la-Bataille</span><br>
+              <i class="fas fa-envelope" style="margin-top: 0.5rem;"></i> <a href="mailto:Riisalth@hotmail.fr" style="color: var(--text-light);">Riisalth@hotmail.fr</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <ul>
+            <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="notes-de-version.html">Notes de version</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#faq">Questions fréquentes</a></li>
+            <li><a href="documentation.html">Guide d'utilisation</a></li>
+            <li><a href="contact.html">Support technique</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <ul>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="cgv.html">CGV</a></li>
+            <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+          <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 10px;">
+            <span style="background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fas fa-flag"></i> Made in France
+            </span>
+            <span style="background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fas fa-shield-alt"></i> Conforme RGPD
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 — Développé par David VIEY — Tous droits réservés</p>
+        <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Créé par David VIEY - Tous droits réservés</p>
       </div>
     </div>
   </footer>
