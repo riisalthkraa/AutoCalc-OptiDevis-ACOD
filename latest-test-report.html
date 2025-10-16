@@ -1,501 +1,674 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport de Tests - AutoCalc OptiDevis v2.6.1</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #1e3a8a 100%);
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #1e293b 0%, #1e3a8a 100%);
-            color: white;
-            padding: 3rem;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .header .version {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        .header .date {
-            margin-top: 1rem;
-            opacity: 0.8;
-        }
-        .summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
-            background: #f7f9fc;
-        }
-        .summary-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .summary-card .value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .summary-card.success .value { color: #059669; }
-        .summary-card.danger .value { color: #dc2626; }
-        .summary-card.warning .value { color: #d97706; }
-        .summary-card.info .value { color: #1e3a8a; }
-        .test-suites {
-            padding: 2rem;
-        }
-        .suite {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-        }
-        .suite-header {
-            background: #f3f4f6;
-            padding: 1rem 1.5rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .suite-stats {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.9rem;
-        }
-        .test {
-            padding: 0.8rem 1.5rem;
-            border-bottom: 1px solid #f3f4f6;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .test:last-child {
-            border-bottom: none;
-        }
-        .test.passed {
-            background: #f0fdf4;
-        }
-        .test.failed {
-            background: #fef2f2;
-        }
-        .test-name {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .test-icon {
-            width: 20px;
-            height: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .duration {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background: #e5e7eb;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 2rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: #059669;
-            transition: width 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        .footer {
-            background: #f9fafb;
-            padding: 2rem;
-            text-align: center;
-            color: #6b7280;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-        .badge.success { background: #059669; color: white; }
-        .badge.warning { background: #d97706; color: white; }
-        .badge.danger { background: #dc2626; color: white; }
-        @media (max-width: 768px) {
-            .header h1 { font-size: 1.8rem; }
-            .summary { grid-template-columns: 1fr 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rapport de tests automatisés - AutoCalc OptiDevis v2.6.1">
+  <title>Tests & Qualité - AutoCalc OptiDevis</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="images/icon.ico" type="image/x-icon">
+  <style>
+    .test-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .test-summary-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      border: 2px solid var(--border-color);
+    }
+    .test-summary-card .value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .test-summary-card.success .value { color: #059669; }
+    .test-summary-card.info .value { color: var(--primary-color); }
+    .test-summary-card.warning .value { color: #d97706; }
+    .suite-card {
+      background: white;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .suite-header {
+      background: var(--bg-light);
+      padding: 20px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .suite-header h3 {
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .suite-stats {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+    .test-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .test-item:last-child {
+      border-bottom: none;
+    }
+    .test-item.passed {
+      background: #f0fdf4;
+    }
+    .test-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-dark);
+    }
+    .test-icon {
+      font-size: 1.1rem;
+    }
+    .test-duration {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .badge.success { background: #059669; color: white; }
+    .badge.info { background: var(--primary-color); color: white; }
+    .badge.warning { background: #d97706; color: white; }
+    .progress-bar-container {
+      width: 100%;
+      height: 40px;
+      background: var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 30px 0;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #059669;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .nav-section {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .nav-section h3 {
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav-links a {
+      background: white;
+      color: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 2px solid var(--border-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="navbar">
     <div class="container">
-        <div class="header">
-            <h1>🧪 Rapport de Tests Automatisés</h1>
-            <div class="version">AutoCalc OptiDevis v2.6.1</div>
-            <div class="date">📅 16/10/2025 18:18:25</div>
-        </div>
-
-        <div class="summary">
-            <div class="summary-card info">
-                <div class="value">27</div>
-                <div>Tests Total</div>
-            </div>
-            <div class="summary-card success">
-                <div class="value">27</div>
-                <div>Réussis</div>
-            </div>
-            <div class="summary-card danger">
-                <div class="value">0</div>
-                <div>Échoués</div>
-            </div>
-            <div class="summary-card warning">
-                <div class="value">100.0%</div>
-                <div>Taux de Réussite</div>
-            </div>
-        </div>
-
-        <div style="padding: 0 2rem;">
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 100%">
-                    27 / 27
-                </div>
-            </div>
-        </div>
-
-        <div class="test-suites">
-            <h2 style="margin-bottom: 1.5rem;">📋 Détails des Suites de Tests</h2>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests Unitaires - Matériaux</span>
-                        <div class="suite-stats">
-                            <span class="badge success">4 réussis</span>
-                            
-                            <span style="color: #6b7280;">58ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Validation des matériaux</span>
-                            </div>
-                            <span class="duration">12ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Calculs de prix</span>
-                            </div>
-                            <span class="duration">8ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Recherche et filtrage</span>
-                            </div>
-                            <span class="duration">15ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Gestion base de données (92 matériaux)</span>
-                            </div>
-                            <span class="duration">23ms</span>
-                        </div>
-                    
-                </div>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests Unitaires - Devis</span>
-                        <div class="suite-stats">
-                            <span class="badge success">5 réussis</span>
-                            
-                            <span style="color: #6b7280;">44ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Validation client avec émetteur (v2.6.1)</span>
-                            </div>
-                            <span class="duration">10ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Calculs de devis</span>
-                            </div>
-                            <span class="duration">18ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Gestion des statuts</span>
-                            </div>
-                            <span class="duration">7ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Période de validité</span>
-                            </div>
-                            <span class="duration">5ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Numérotation automatique</span>
-                            </div>
-                            <span class="duration">4ms</span>
-                        </div>
-                    
-                </div>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests d'Intégration</span>
-                        <div class="suite-stats">
-                            <span class="badge success">5 réussis</span>
-                            
-                            <span style="color: #6b7280;">177ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Workflow complet de création</span>
-                            </div>
-                            <span class="duration">45ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Conversion Devis → Facture</span>
-                            </div>
-                            <span class="duration">22ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Sauvegarde et restauration</span>
-                            </div>
-                            <span class="duration">31ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Gestion des permissions Admin/Vendeur</span>
-                            </div>
-                            <span class="duration">12ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Export PDF Multi-Design (5 designs)</span>
-                            </div>
-                            <span class="duration">67ms</span>
-                        </div>
-                    
-                </div>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests de Performance</span>
-                        <div class="suite-stats">
-                            <span class="badge success">4 réussis</span>
-                            
-                            <span style="color: #6b7280;">1976ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Chargement 18 devis < 100ms</span>
-                            </div>
-                            <span class="duration">78ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Initialisation < 50ms</span>
-                            </div>
-                            <span class="duration">42ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Recherche dans 92 matériaux < 10ms</span>
-                            </div>
-                            <span class="duration">6ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Export PDF < 2s</span>
-                            </div>
-                            <span class="duration">1850ms</span>
-                        </div>
-                    
-                </div>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests de Régression v2.6.1</span>
-                        <div class="suite-stats">
-                            <span class="badge success">5 réussis</span>
-                            
-                            <span style="color: #6b7280;">29ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Onglet "Catalogue" (ex-Admin)</span>
-                            </div>
-                            <span class="duration">3ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Bouton "Ajouter" (ex-Ajouter Matériau)</span>
-                            </div>
-                            <span class="duration">2ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Champ Émetteur dans les devis</span>
-                            </div>
-                            <span class="duration">5ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Affichage émetteur dans PDF</span>
-                            </div>
-                            <span class="duration">8ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Rétrocompatibilité anciens devis</span>
-                            </div>
-                            <span class="duration">11ms</span>
-                        </div>
-                    
-                </div>
-            
-                <div class="suite">
-                    <div class="suite-header">
-                        <span>Tests de Sécurité</span>
-                        <div class="suite-stats">
-                            <span class="badge success">4 réussis</span>
-                            
-                            <span style="color: #6b7280;">34ms</span>
-                        </div>
-                    </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Validation des entrées utilisateur</span>
-                            </div>
-                            <span class="duration">14ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Protection mode Admin</span>
-                            </div>
-                            <span class="duration">9ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Échappement XSS</span>
-                            </div>
-                            <span class="duration">7ms</span>
-                        </div>
-                    
-                        <div class="test passed">
-                            <div class="test-name">
-                                <span class="test-icon">✅</span>
-                                <span>Validation emails</span>
-                            </div>
-                            <span class="duration">4ms</span>
-                        </div>
-                    
-                </div>
-            
-        </div>
-
-        <div class="footer">
-            <h3 style="margin-bottom: 1rem;">🖥️ Environnement de Test</h3>
-            <p>Node.js: v22.20.0 | Plateforme: win32 | Architecture: x64</p>
-            <p style="margin-top: 1rem;">Durée totale: 1ms</p>
-            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e5e7eb;">
-            <p>© 2025 AutoCalc OptiDevis - Développé par David VIEY</p>
-            <p style="margin-top: 0.5rem;">
-                <span class="badge success">Stable</span>
-                <span class="badge warning">v2.6.1</span>
-                <span class="badge success">Production Ready</span>
-            </p>
-        </div>
+      <div class="nav-brand">
+        <img src="images/logo.png" alt="AutoCalc OptiDevis" class="logo">
+        <span class="brand-text">AutoCalc <strong>OptiDevis</strong></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="notes-de-version.html">Notes de version</a></li>
+        <li><a href="latest-test-report.html" class="active">Tests & Qualité</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
+  </nav>
+
+  <!-- En-tête -->
+  <section class="hero" style="padding: 80px 0;">
+    <div class="container" style="text-align: center;">
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+        <i class="fas fa-check-circle" style="color: #059669;"></i> Rapport de Tests Automatisés
+      </h1>
+      <p style="max-width: 800px; margin: 1rem auto; font-size: 1.2rem; color: var(--text-gray);">
+        AutoCalc OptiDevis v2.6.1 - Dernière exécution : 16/10/2025 18:18:25
+      </p>
+    </div>
+  </section>
+
+  <!-- Navigation rapide -->
+  <section style="padding: 40px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="nav-section">
+        <h3><i class="fas fa-compass"></i> Navigation rapide</h3>
+        <div class="nav-links">
+          <a href="#resume"><i class="fas fa-chart-pie"></i> Résumé</a>
+          <a href="#unitaires"><i class="fas fa-cube"></i> Tests Unitaires</a>
+          <a href="#integration"><i class="fas fa-puzzle-piece"></i> Intégration</a>
+          <a href="#performance"><i class="fas fa-tachometer-alt"></i> Performance</a>
+          <a href="#regression"><i class="fas fa-history"></i> Régression</a>
+          <a href="#securite"><i class="fas fa-shield-alt"></i> Sécurité</a>
+          <a href="#environnement"><i class="fas fa-server"></i> Environnement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Résumé global -->
+  <section id="resume" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 40px;">
+        <i class="fas fa-chart-pie"></i> Résumé Global
+      </h2>
+
+      <div class="test-summary-grid">
+        <div class="test-summary-card info">
+          <div class="value">27</div>
+          <div style="color: var(--text-gray);">Tests Total</div>
+        </div>
+        <div class="test-summary-card success">
+          <div class="value">27</div>
+          <div style="color: var(--text-gray);">Réussis</div>
+        </div>
+        <div class="test-summary-card warning">
+          <div class="value">0</div>
+          <div style="color: var(--text-gray);">Échoués</div>
+        </div>
+        <div class="test-summary-card success">
+          <div class="value">100%</div>
+          <div style="color: var(--text-gray);">Taux de Réussite</div>
+        </div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" style="width: 100%">
+          27 / 27 Tests Réussis
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests Unitaires - Matériaux -->
+  <section id="unitaires" style="padding: 60px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-cube"></i> Tests Unitaires - Matériaux
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-boxes"></i> Gestion des Matériaux
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">4 réussis</span>
+            <span>Durée totale : 58ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Validation des matériaux</span>
+          </div>
+          <span class="test-duration">12ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Calculs de prix</span>
+          </div>
+          <span class="test-duration">8ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Recherche et filtrage</span>
+          </div>
+          <span class="test-duration">15ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Gestion base de données (92 matériaux)</span>
+          </div>
+          <span class="test-duration">23ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests Unitaires - Devis -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-file-invoice"></i> Tests Unitaires - Devis
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-file-alt"></i> Gestion des Devis
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">5 réussis</span>
+            <span>Durée totale : 44ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Validation client avec émetteur (v2.6.1)</span>
+          </div>
+          <span class="test-duration">10ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Calculs de devis</span>
+          </div>
+          <span class="test-duration">18ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Gestion des statuts</span>
+          </div>
+          <span class="test-duration">7ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Période de validité</span>
+          </div>
+          <span class="test-duration">5ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Numérotation automatique</span>
+          </div>
+          <span class="test-duration">4ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests d'Intégration -->
+  <section id="integration" style="padding: 60px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-puzzle-piece"></i> Tests d'Intégration
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-link"></i> Workflows Complets
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">5 réussis</span>
+            <span>Durée totale : 177ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Workflow complet de création</span>
+          </div>
+          <span class="test-duration">45ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Conversion Devis → Facture</span>
+          </div>
+          <span class="test-duration">22ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Sauvegarde et restauration</span>
+          </div>
+          <span class="test-duration">31ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Gestion des permissions Admin/Vendeur</span>
+          </div>
+          <span class="test-duration">12ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Export PDF Multi-Design (5 designs)</span>
+          </div>
+          <span class="test-duration">67ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests de Performance -->
+  <section id="performance" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-tachometer-alt"></i> Tests de Performance
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-rocket"></i> Performances et Optimisations
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">4 réussis</span>
+            <span>Durée totale : 1976ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Chargement 18 devis < 100ms</span>
+          </div>
+          <span class="test-duration">78ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Initialisation < 50ms</span>
+          </div>
+          <span class="test-duration">42ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Recherche dans 92 matériaux < 10ms</span>
+          </div>
+          <span class="test-duration">6ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Export PDF < 2s</span>
+          </div>
+          <span class="test-duration">1850ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests de Régression -->
+  <section id="regression" style="padding: 60px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-history"></i> Tests de Régression v2.6.1
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-code-branch"></i> Nouvelles Fonctionnalités v2.6.1
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">5 réussis</span>
+            <span>Durée totale : 29ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Onglet "Catalogue" (ex-Admin)</span>
+          </div>
+          <span class="test-duration">3ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Bouton "Ajouter" (ex-Ajouter Matériau)</span>
+          </div>
+          <span class="test-duration">2ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Champ Émetteur dans les devis</span>
+          </div>
+          <span class="test-duration">5ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Affichage émetteur dans PDF</span>
+          </div>
+          <span class="test-duration">8ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Rétrocompatibilité anciens devis</span>
+          </div>
+          <span class="test-duration">11ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tests de Sécurité -->
+  <section id="securite" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 40px;">
+        <i class="fas fa-shield-alt"></i> Tests de Sécurité
+      </h2>
+
+      <div class="suite-card">
+        <div class="suite-header">
+          <h3>
+            <i class="fas fa-lock"></i> Sécurité et Validations
+          </h3>
+          <div class="suite-stats">
+            <span class="badge success">4 réussis</span>
+            <span>Durée totale : 34ms</span>
+          </div>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Validation des entrées utilisateur</span>
+          </div>
+          <span class="test-duration">14ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Protection mode Admin</span>
+          </div>
+          <span class="test-duration">9ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Échappement XSS</span>
+          </div>
+          <span class="test-duration">7ms</span>
+        </div>
+
+        <div class="test-item passed">
+          <div class="test-name">
+            <span class="test-icon">✅</span>
+            <span>Validation emails</span>
+          </div>
+          <span class="test-duration">4ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Environnement de test -->
+  <section id="environnement" style="padding: 60px 0; background: var(--bg-light);">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 40px;">
+        <i class="fas fa-server"></i> Environnement de Test
+      </h2>
+
+      <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; border: 2px solid var(--border-color);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+          <div style="text-align: center;">
+            <i class="fas fa-code" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+            <h3 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">Node.js</h3>
+            <p style="color: var(--text-gray);">v22.20.0</p>
+          </div>
+          <div style="text-align: center;">
+            <i class="fas fa-laptop" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+            <h3 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">Plateforme</h3>
+            <p style="color: var(--text-gray);">Windows (win32)</p>
+          </div>
+          <div style="text-align: center;">
+            <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+            <h3 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px;">Architecture</h3>
+            <p style="color: var(--text-gray);">x64</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding-top: 20px; border-top: 2px solid var(--border-color);">
+          <div style="margin-bottom: 15px;">
+            <span class="badge success">Stable</span>
+            <span class="badge info">v2.6.1</span>
+            <span class="badge success">Production Ready</span>
+          </div>
+          <p style="color: var(--text-gray); font-size: 0.95rem;">
+            © 2025 AutoCalc OptiDevis - Développé par David VIEY
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="images/logo.png" alt="AutoCalc OptiDevis" class="footer-logo">
+            <p>Le logiciel professionnel de gestion de devis et factures pour artisans du bâtiment</p>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.6;">
+              <i class="fas fa-map-marker-alt"></i> 99 Rue Michel Montaigne<br>
+              <span style="margin-left: 20px;">33350 Castillon-la-Bataille</span><br>
+              <i class="fas fa-envelope" style="margin-top: 0.5rem;"></i> <a href="mailto:Riisalth@hotmail.fr" style="color: var(--text-light);">Riisalth@hotmail.fr</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <ul>
+            <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="notes-de-version.html">Notes de version</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#faq">Questions fréquentes</a></li>
+            <li><a href="documentation.html">Guide d'utilisation</a></li>
+            <li><a href="contact.html">Support technique</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <ul>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="cgv.html">CGV</a></li>
+            <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+          <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 10px;">
+            <span style="background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fas fa-flag"></i> Made in France
+            </span>
+            <span style="background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fas fa-shield-alt"></i> Conforme RGPD
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AutoCalc OptiDevis v2.6.0 - Créé par David VIEY - Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
