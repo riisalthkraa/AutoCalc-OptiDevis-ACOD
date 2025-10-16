@@ -3,26 +3,26 @@
    Style professionnel pour le secteur du bâtiment
    ===================================================== */
 
-/* Variables CSS */
+/* Variables CSS - Palette Corporate Sobre */
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    --primary-light: #3b82f6;
-    --secondary-color: #f59e0b;
-    --secondary-dark: #d97706;
+    --primary-color: #1e3a8a;
+    --primary-dark: #1e293b;
+    --primary-light: #3b5998;
+    --secondary-color: #64748b;
+    --secondary-dark: #475569;
     --text-dark: #1f2937;
-    --text-gray: #6b7280;
-    --text-light: #9ca3af;
-    --bg-light: #f9fafb;
+    --text-gray: #64748b;
+    --text-light: #94a3b8;
+    --bg-light: #f8fafc;
     --bg-white: #ffffff;
-    --border-color: #e5e7eb;
-    --success: #10b981;
-    --danger: #ef4444;
-    --warning: #f59e0b;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --border-color: #e2e8f0;
+    --success: #059669;
+    --danger: #dc2626;
+    --warning: #64748b;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.06);
+    --shadow-lg: 0 4px 6px -2px rgb(0 0 0 / 0.08);
+    --shadow-xl: 0 8px 12px -4px rgb(0 0 0 / 0.1);
 }
 
 /* Reset & Base */
@@ -141,7 +141,7 @@ a {
 /* Hero Section */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #1e3a8a 100%);
     color: white;
     padding: 100px 0 80px;
     overflow: hidden;
@@ -174,9 +174,10 @@ a {
 }
 
 .highlight {
-    color: var(--secondary-color);
+    color: #ffffff;
     position: relative;
     display: inline-block;
+    font-weight: 700;
 }
 
 .hero-subtitle {
@@ -201,7 +202,7 @@ a {
 }
 
 .hero-feature i {
-    color: var(--secondary-color);
+    color: #94a3b8;
     font-size: 1.3rem;
 }
 
@@ -233,8 +234,8 @@ a {
     background: var(--secondary-color);
     color: white;
     padding: 12px 20px;
-    border-radius: 50px;
-    box-shadow: var(--shadow-lg);
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -261,14 +262,13 @@ a {
 }
 
 .btn-primary {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: white;
 }
 
 .btn-primary:hover {
-    background: var(--secondary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
@@ -278,7 +278,6 @@ a {
 
 .btn-secondary:hover {
     background: var(--bg-light);
-    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -319,8 +318,7 @@ a {
 }
 
 .stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .stat-item i {
@@ -381,15 +379,14 @@ a {
 
 .feature-card:hover {
     border-color: var(--primary-color);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-md);
 }
 
 .feature-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    border-radius: 16px;
+    background: var(--primary-color);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,12 +528,11 @@ a {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-md);
 }
 
 .testimonial-stars {
-    color: var(--secondary-color);
+    color: #d4af37;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
 }
@@ -564,7 +560,7 @@ a {
 /* CTA Section */
 .cta-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #1e3a8a 100%);
     color: white;
     text-align: center;
 }
@@ -603,7 +599,7 @@ a {
 }
 
 .cta-feature i {
-    color: var(--secondary-color);
+    color: #94a3b8;
     font-size: 1.3rem;
 }
 
@@ -654,7 +650,6 @@ a {
 
 .footer-social a:hover {
     background: var(--primary-color);
-    transform: translateY(-3px);
 }
 
 .footer-col h4 {
