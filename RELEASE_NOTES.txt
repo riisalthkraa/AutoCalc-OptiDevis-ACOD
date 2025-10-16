@@ -1,0 +1,236 @@
+═══════════════════════════════════════════════════════════════════
+  AUTOCALC OPTIDEVIS - NOTES DE VERSIONS
+  Application de gestion de devis pour le secteur du bâtiment
+═══════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════
+VERSION 2.6.4 - 16 Octobre 2025
+═══════════════════════════════════════════════════════════════════
+
+🔐 PROTECTION JURIDIQUE COMPLÈTE
+────────────────────────────────────────────────────────────────────
+
+📝 Paraphe et signature sur tous les PDF (devis & factures)
+  • Nouvelle protection juridique contre la perte ou dissimulation de pages
+  • Implémentation intelligente du système paraphe/signature :
+    - Documents 1 page : signature complète uniquement
+    - Documents multi-pages : paraphe sur pages 1 à N-1, signature sur page N
+  • Le client doit parapher chaque page intermédiaire
+  • Signature complète uniquement sur la dernière page
+  • Protection légale : preuve d'acceptation même si page perdue
+
+📋 Mentions légales sur toutes les pages
+  • Les mentions légales s'affichent automatiquement dans le footer
+  • Visibles sur chaque page du document PDF
+  • Intégration dans les 5 designs disponibles
+  • Configuration via l'onglet Configuration de l'application
+
+🎨 Mise à jour des 5 designs PDF
+  • Design 1 - Corporate Élégant : footer avec paraphe/signature
+  • Design 2 - Moderne Dynamique : footer avec paraphe/signature + correction émojis
+  • Design 3 - Minimaliste Professionnel : footer avec paraphe/signature
+  • Design 4 - Artisan Chaleureux : footer avec paraphe/signature
+  • Design 5 - Tech Premium : footer avec paraphe/signature
+
+🐛 CORRECTIONS DE BUGS
+────────────────────────────────────────────────────────────────────
+
+🔧 Correction des caractères émojis (Design Moderne Dynamique)
+  • Problème résolu : caractères étranges "Ø=ÜÞ" au lieu des émojis 📞 ✉
+  • Cause : émojis non supportés par la police Helvetica dans jsPDF
+  • Solution : remplacement par texte simple
+    - 📞 → "Tél:"
+    - ✉ → supprimé (email affiché directement)
+  • Correction appliquée aux sections ÉMETTEUR et CLIENT
+  • Affichage correct dans tous les PDF générés
+
+🔄 Suppression de la section signature redondante
+  • Ancienne section signature (dernière page uniquement) supprimée
+  • Désormais gérée entièrement par les footers
+  • Code plus propre et cohérent
+  • Évite la duplication de la signature
+
+🔧 AMÉLIORATIONS TECHNIQUES
+────────────────────────────────────────────────────────────────────
+
+✅ Refonte complète des fonctions footer
+  • 5 fonctions footer mises à jour :
+    - drawFooterElegant()
+    - drawFooterModern()
+    - drawFooterMinimalist()
+    - drawFooterArtisan()
+    - drawFooterTech()
+  • Hauteur de footer augmentée (15-18px → 35-40px)
+  • Positionnement dynamique du texte (variable footerY)
+  • Logique conditionnelle pour paraphe/signature
+  • Support complet des mentions légales
+
+✅ Configuration footerConfig étendue
+  • Ajout du paramètre mentionsLegales dans footerConfig
+  • Transmission automatique depuis company.mentionslegales
+  • Disponible pour devis ET factures
+  • Synchronisation avec la configuration entreprise
+
+📊 STATISTIQUES
+────────────────────────────────────────────────────────────────────
+• Fichiers modifiés : 2 (app.js, pdf-templates.js)
+• Fonctions footer modifiées : 5
+• Lignes de code ajoutées : ~150
+• Lignes de code supprimées : ~25 (section signature redondante)
+• Nouvelle hauteur de footer : 35-40px (vs 15-18px avant)
+• Type de version : MINOR (nouvelles fonctionnalités + corrections)
+• Impact : Protection juridique renforcée pour tous les documents PDF
+
+
+═══════════════════════════════════════════════════════════════════
+VERSION 2.6.2 - 16 Octobre 2025
+═══════════════════════════════════════════════════════════════════
+
+🐛 CORRECTIONS DE BUGS
+────────────────────────────────────────────────────────────────────
+
+📧 Email client devenu optionnel (complété)
+  • Le champ email client n'est plus obligatoire lors de la création
+  • Label mis à jour avec mention "(optionnel)"
+  • Placeholder "exemple@email.fr" ajouté pour guider l'utilisateur
+  • Nouvelle règle de validation "optionalEmail" dans validation.js
+  • L'email reste obligatoire uniquement pour l'envoi par email
+  • Permet la gestion de clients sans adresse email
+
+📦 Correction définitive des champs numériques du Catalogue
+  • Correction du problème des valeurs "0" qui disparaissaient au rechargement
+  • Nouvelle règle de validation "optionalNumber" qui accepte :
+    - Valeurs vides
+    - Valeur zéro (0)
+    - Nombres valides positifs ou négatifs
+  • Appliquée aux champs : Couverture, Stock, Densité, Poids unitaire
+  • Code-barres devenu complètement optionnel (validation supprimée)
+  • Correction de la logique de chargement : utilisation de !== null et !== undefined
+    au lieu de || '' (app.js lignes 1914-1920)
+  • Les calculs restent corrects car 0 = null dans les opérations mathématiques
+  • Amélioration notable de l'ergonomie pour la gestion des articles
+
+🛡️ Protection automatique des boutons dynamiques
+  • Nouvelle fonction observeNewButtons() avec MutationObserver
+  • Détection et protection automatique des boutons ajoutés dynamiquement au DOM
+  • Système de cooldown adaptatif selon le type de bouton :
+    - 1000ms pour les boutons standards
+    - 1200ms pour les boutons de sauvegarde
+    - 1500ms pour les boutons critiques (suppression)
+  • Observer actif sur tout le DOM (document.body et descendants)
+  • Console log pour debug des protections appliquées
+  • Prévention complète des clics multiples accidentels
+
+📊 STATISTIQUES
+────────────────────────────────────────────────────────────────────
+• Fichiers modifiés : 3 (app.js, validation.js, index.html)
+• Lignes de code modifiées : ~60
+• Nouvelle fonction : 1 (observeNewButtons)
+• Nouvelles règles de validation : 2 (optionalEmail, optionalNumber)
+• Type de version : PATCH (corrections de bugs)
+
+═══════════════════════════════════════════════════════════════════
+VERSION 2.6.1 - 16 Octobre 2025
+═══════════════════════════════════════════════════════════════════
+
+🆕 NOUVELLES FONCTIONNALITÉS
+────────────────────────────────────────────────────────────────────
+
+📝 Champ "Émetteur" pour les devis
+  • Ajout d'un nouveau champ "Émetteur (qui fait le devis)" dans le
+    formulaire de création de devis
+  • Permet d'identifier précisément la personne ayant créé le devis
+  • Le nom de l'émetteur est automatiquement sauvegardé avec le devis
+  • Affiché dans tous les PDF générés (5 designs disponibles)
+  • Visible en italique dans la section client du PDF
+
+🔄 AMÉLIORATIONS DE L'INTERFACE
+────────────────────────────────────────────────────────────────────
+
+🏷️ Renommage de l'onglet "Admin" → "Catalogue"
+  • Nom plus explicite reflétant mieux sa fonction
+  • L'onglet regroupe la gestion de la base de données d'articles
+  • Meilleure clarté pour les utilisateurs
+
+🔘 Simplification du bouton "Ajouter Matériau" → "Ajouter"
+  • Bouton plus concis dans l'onglet Catalogue
+  • Le contexte rend évident qu'il s'agit d'ajouter un article
+  • Interface plus épurée
+
+🔧 AMÉLIORATIONS TECHNIQUES
+────────────────────────────────────────────────────────────────────
+
+✅ Synchronisation automatique des données
+  • Fonction syncClientInfoFromForm() pour garantir la cohérence des données
+  • Synchronisation avant chaque sauvegarde et export PDF
+  • Prévention des pertes de données
+
+✅ Persistance des données améliorée
+  • Le champ émetteur est géré dans toutes les opérations :
+    - Création de nouveau devis
+    - Chargement de devis existants
+    - Duplication de devis
+    - Impression et export PDF
+    - Réinitialisation du formulaire
+
+✅ Support multi-design
+  • L'émetteur s'affiche dans les 5 designs PDF :
+    - Corporate Élégant
+    - Moderne Dynamique
+    - Minimaliste Professionnel
+    - Artisan Chaleureux
+    - Tech Premium
+
+📧 Email client optionnel
+  • Le champ email n'est plus obligatoire lors de la création d'un devis
+  • Label mis à jour avec mention "(optionnel)"
+  • Validation du format email uniquement si renseigné
+  • Email reste obligatoire uniquement pour l'envoi par email
+  • Permet de créer des devis pour clients sans adresse email
+
+🛡️ Protection renforcée contre les double-clics
+  • Système de protection appliqué à tous les boutons (280+)
+  • Cooldown adaptatif selon le type de bouton :
+    - 1000ms pour les boutons standards
+    - 1200ms pour les boutons de sauvegarde
+    - 1500ms pour les boutons critiques (suppression)
+  • MutationObserver pour protéger automatiquement les boutons dynamiques
+  • Prévention des actions multiples accidentelles
+  • Amélioration de la stabilité globale de l'application
+
+📦 Correction des champs numériques du Catalogue
+  • Problème résolu : les valeurs "0" disparaissaient au rechargement
+  • Nouvelle règle de validation "optionalNumber" :
+    - Accepte les valeurs vides, zéro, ou nombres valides
+    - Appliquée aux champs : Couverture, Stock, Densité, Poids unitaire
+  • Code-barres devenu complètement optionnel
+  • Champs obligatoires conservés : Nom, Prix, Type, TVA
+  • Correction de la logique de chargement des valeurs (app.js:1914-1920)
+  • Les calculs restent corrects car 0 = null dans les opérations
+  • Amélioration de l'ergonomie pour la gestion des articles
+
+📊 STATISTIQUES
+────────────────────────────────────────────────────────────────────
+• Fichiers modifiés : 4 (index.html, app.js, pdf-templates.js, validation.js)
+• Lignes de code ajoutées : ~100
+• Fonctions mises à jour : 17+
+• Boutons protégés : 280+
+• Compatibilité : Windows 10/11
+• Base de données : 92 matériaux compatibles
+
+
+═══════════════════════════════════════════════════════════════════
+VERSION 2.6.0 - Versions antérieures
+═══════════════════════════════════════════════════════════════════
+
+Pour les versions antérieures à 2.6.1, consulter l'historique Git
+ou contacter le développeur.
+
+═══════════════════════════════════════════════════════════════════
+INFORMATIONS
+═══════════════════════════════════════════════════════════════════
+Développeur : David VIEY
+Email : Riisalth@hotmail.fr
+Secteur : BTP / Bâtiment
+Technologie : Electron, Node.js, Bootstrap 5
+═══════════════════════════════════════════════════════════════════
