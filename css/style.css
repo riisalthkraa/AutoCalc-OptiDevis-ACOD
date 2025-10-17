@@ -798,6 +798,61 @@ a {
     font-size: 0.9rem;
 }
 
+/* KPI Box - Encadrés avec couleur jaune du logiciel */
+.kpi-box {
+    position: relative;
+    padding: 25px;
+    background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+    border: 3px solid var(--accent-orange);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+    transition: all 0.3s ease;
+}
+
+.kpi-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+    border-color: #f59e0b;
+}
+
+.kpi-box::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, var(--accent-orange), #fbbf24);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.kpi-box:hover::before {
+    opacity: 0.15;
+}
+
+.kpi-box h3 {
+    position: relative;
+    z-index: 1;
+}
+
+.kpi-box .kpi-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--accent-orange);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 968px) {
     .nav-menu {
