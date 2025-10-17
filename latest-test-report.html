@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rapport de tests automatisés AutoCalc OptiDevis - 47 tests validés">
-    <title>Rapport de Tests - AutoCalc OptiDevis v2.6.4</title>
+    <meta name="description" content="Rapport de tests automatisés AutoCalc OptiDevis - 53/55 tests validés (96.4%)">
+    <title>Rapport de Tests - AutoCalc OptiDevis v2.6.5</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -194,33 +194,33 @@
             <div class="test-report-container">
                 <div class="test-header">
                     <h1>🧪 Rapport de Tests Automatisés</h1>
-                    <div class="version">AutoCalc OptiDevis v2.6.4</div>
-                    <div class="date">📅 16/10/2025 23:40:17</div>
+                    <div class="version">AutoCalc OptiDevis v2.6.5</div>
+                    <div class="date">📅 17/10/2025 06:06:08</div>
                 </div>
 
                 <div class="summary">
                     <div class="summary-card info">
-                        <div class="value">47</div>
+                        <div class="value">55</div>
                         <div>Tests Total</div>
                     </div>
                     <div class="summary-card success">
-                        <div class="value">47</div>
+                        <div class="value">53</div>
                         <div>Réussis</div>
                     </div>
                     <div class="summary-card danger">
-                        <div class="value">0</div>
+                        <div class="value">2</div>
                         <div>Échoués</div>
                     </div>
                     <div class="summary-card warning">
-                        <div class="value">100.0%</div>
+                        <div class="value">96.4%</div>
                         <div>Taux de Réussite</div>
                     </div>
                 </div>
 
                 <div style="padding: 0 2rem;">
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%">
-                            47 / 47
+                        <div class="progress-fill" style="width: 96.36363636363636%">
+                            53 / 55
                         </div>
                     </div>
                 </div>
@@ -444,42 +444,99 @@
                         </div>
                     </div>
 
-                    <!-- Tests de Sécurité -->
+                    <!-- Tests de Sécurité v2.6.5 -->
                     <div class="suite">
                         <div class="suite-header">
-                            <span>Tests de Sécurité</span>
+                            <span>Tests de Sécurité v2.6.5</span>
                             <div class="suite-stats">
-                                <span class="badge success">4 réussis</span>
-                                <span style="color: #6b7280;">34ms</span>
+                                <span class="badge success">10 réussis</span>
+                                <span class="badge danger">2 échoués</span>
+                                <span style="color: #6b7280;">97ms</span>
                             </div>
                         </div>
                         <div class="test passed">
                             <div class="test-name">
                                 <span class="test-icon">✅</span>
-                                <span>Validation des entrées utilisateur</span>
+                                <span>Content Security Policy (CSP) implémentée</span>
                             </div>
-                            <span class="duration">14ms</span>
+                            <span class="duration">5ms</span>
                         </div>
                         <div class="test passed">
                             <div class="test-name">
                                 <span class="test-icon">✅</span>
-                                <span>Protection mode Admin</span>
+                                <span>Protection XSS - TextFormatter.escapeHtml() (6 caractères)</span>
                             </div>
-                            <span class="duration">9ms</span>
+                            <span class="duration">8ms</span>
                         </div>
                         <div class="test passed">
                             <div class="test-name">
                                 <span class="test-icon">✅</span>
-                                <span>Échappement XSS</span>
+                                <span>Protection Path Traversal - sanitizeFilename()</span>
+                            </div>
+                            <span class="duration">12ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Protection Path Traversal - validateFilePath()</span>
+                            </div>
+                            <span class="duration">10ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Protection Drag & Drop (user-drag: none)</span>
+                            </div>
+                            <span class="duration">4ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Configuration Electron sécurisée (contextIsolation)</span>
+                            </div>
+                            <span class="duration">6ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Configuration Electron sécurisée (nodeIntegration)</span>
+                            </div>
+                            <span class="duration">5ms</span>
+                        </div>
+                        <div class="test failed">
+                            <div class="test-name">
+                                <span class="test-icon">❌</span>
+                                <span>⚠️ VULNÉRABILITÉ: BYPASS_AUTH présent (main.js:108)</span>
+                            </div>
+                            <span class="duration">3ms</span>
+                        </div>
+                        <div class="test failed">
+                            <div class="test-name">
+                                <span class="test-icon">❌</span>
+                                <span>⚠️ VULNÉRABILITÉ: Token dans localStorage (app.js:671)</span>
+                            </div>
+                            <span class="duration">4ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Handler logout-session sécurisé implémenté</span>
                             </div>
                             <span class="duration">7ms</span>
                         </div>
                         <div class="test passed">
                             <div class="test-name">
                                 <span class="test-icon">✅</span>
-                                <span>Validation emails</span>
+                                <span>Système de backup automatique opérationnel</span>
                             </div>
-                            <span class="duration">4ms</span>
+                            <span class="duration">18ms</span>
+                        </div>
+                        <div class="test passed">
+                            <div class="test-name">
+                                <span class="test-icon">✅</span>
+                                <span>Modal de restauration avec liste sécurisée</span>
+                            </div>
+                            <span class="duration">15ms</span>
                         </div>
                     </div>
 
@@ -664,7 +721,7 @@
                     <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e5e7eb;">
                     <p style="margin-top: 0.5rem;">
                         <span class="badge success">Stable</span>
-                        <span class="badge warning">v2.6.4</span>
+                        <span class="badge warning">v2.6.5</span>
                         <span class="badge success">Production Ready</span>
                     </p>
                 </div>
@@ -729,7 +786,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 AutoCalc OptiDevis v2.6.4 - Créé par David VIEY - Tous droits réservés</p>
+                <p>&copy; 2025 AutoCalc OptiDevis v2.6.5 - Créé par David VIEY - Tous droits réservés</p>
             </div>
         </div>
     </footer>
