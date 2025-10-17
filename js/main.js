@@ -1,5 +1,5 @@
-// AutoCalc OptiDevis - Site Web PRO
-// Animations subtiles et professionnelles pour vitrine ERP
+// AutoCalc OptiDevis - Site Web
+// Effets simples et élégants
 
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation mobile
@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carousel de screenshots
     initCarousel();
 
-    // Animations au scroll (subtiles et professionnelles)
+    // Animations simples au scroll
     initScrollAnimations();
 
-    // Compteurs animés (progressifs et doux)
+    // Compteurs animés progressifs (on garde celui-ci)
     initCounters();
 
-    // Navbar intelligente
-    initSmartNavbar();
+    // Navbar avec ombre au scroll
+    initNavbar();
 
-    // Smooth interactions
-    initSmoothInteractions();
+    // Effets hover simples
+    initHoverEffects();
 });
 
 // Navigation mobile
@@ -42,7 +42,7 @@ function initMobileNav() {
     }
 }
 
-// Carousel professionnel avec transitions douces
+// Carousel simple
 function initCarousel() {
     const items = document.querySelectorAll('.screenshot-item');
     const dotsContainer = document.querySelector('.carousel-dots');
@@ -52,7 +52,6 @@ function initCarousel() {
     if (items.length === 0) return;
 
     let currentIndex = 0;
-    let isAnimating = false;
 
     // Créer les dots
     items.forEach((_, index) => {
@@ -66,26 +65,13 @@ function initCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     function goToSlide(index) {
-        if (isAnimating || index === currentIndex) return;
-        isAnimating = true;
-
-        // Transition très douce
-        items[currentIndex].style.opacity = '0';
-        items[currentIndex].style.transform = 'translateX(-20px)';
+        items[currentIndex].classList.remove('active');
         dots[currentIndex].classList.remove('active');
 
-        setTimeout(() => {
-            items[currentIndex].classList.remove('active');
-            currentIndex = index;
-            items[currentIndex].classList.add('active');
+        currentIndex = index;
 
-            setTimeout(() => {
-                items[currentIndex].style.opacity = '1';
-                items[currentIndex].style.transform = 'translateX(0)';
-                dots[currentIndex].classList.add('active');
-                isAnimating = false;
-            }, 50);
-        }, 400);
+        items[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
     }
 
     if (prevBtn) {
@@ -102,71 +88,48 @@ function initCarousel() {
         });
     }
 
-    // Auto-play doux
+    // Auto-play
     setInterval(() => {
         const newIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
         goToSlide(newIndex);
-    }, 6000);
+    }, 5000);
 }
 
-// Animations au scroll TRÈS subtiles et professionnelles
+// Animations SIMPLES au scroll - fade in seulement
 function initScrollAnimations() {
     const observerOptions = {
-        threshold: 0.15,
+        threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Transition très douce sans flash
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
 
-    // Feature cards - apparition subtile
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(15px)';
-        card.style.transition = `opacity 0.8s ease-out ${index * 0.08}s, transform 0.8s ease-out ${index * 0.08}s`;
-        observer.observe(card);
-    });
-
-    // Témoignages - glissement très doux
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    testimonials.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(10px)';
-        card.style.transition = `opacity 0.9s ease-out ${index * 0.1}s, transform 0.9s ease-out ${index * 0.1}s`;
-        observer.observe(card);
-    });
-
-    // Stats - fade in progressif
-    const stats = document.querySelectorAll('.stat-item');
-    stats.forEach((stat, index) => {
-        stat.style.opacity = '0';
-        stat.style.transform = 'translateY(8px)';
-        stat.style.transition = `opacity 1s ease-out ${index * 0.12}s, transform 1s ease-out ${index * 0.12}s`;
-        observer.observe(stat);
+    // Observer tous les éléments
+    const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item, .pricing-card');
+    elements.forEach(element => {
+        observer.observe(element);
     });
 }
 
-// Compteurs animés progressifs
+// Compteurs animés progressifs (GARDÉ)
 function initCounters() {
     const counterElements = document.querySelectorAll('.stat-item h3');
 
     const observerOptions = {
-        threshold: 0.7
+        threshold: 0.5
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                 entry.target.classList.add('counted');
-                setTimeout(() => animateCounter(entry.target), 200);
+                animateCounter(entry.target);
             }
         });
     }, observerOptions);
@@ -182,17 +145,15 @@ function animateCounter(element) {
 
     if (isNaN(number)) return;
 
-    const duration = 1800; // Plus lent = plus professionnel
-    const steps = 60;
-    const increment = number / steps;
+    const duration = 1500;
+    const steps = 50;
     let current = 0;
     let step = 0;
 
     const timer = setInterval(() => {
         step++;
-        // Easing function pour ralentir à la fin
         const progress = step / steps;
-        const easing = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+        const easing = 1 - Math.pow(1 - progress, 3);
         current = number * easing;
 
         if (step >= steps) {
@@ -211,50 +172,28 @@ function animateCounter(element) {
     }, duration / steps);
 }
 
-// Navbar intelligente et professionnelle
-function initSmartNavbar() {
-    let lastScroll = 0;
+// Navbar simple avec ombre au scroll
+function initNavbar() {
     const navbar = document.querySelector('.navbar');
-
     if (!navbar) return;
 
-    navbar.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        // Effet de glassmorphism au scroll
-        if (currentScroll > 80) {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(12px)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+        if (window.pageYOffset > 50) {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
         } else {
-            navbar.style.backgroundColor = 'white';
-            navbar.style.backdropFilter = 'none';
             navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
         }
-
-        // Cache la navbar au scroll down (au-delà de 400px)
-        if (currentScroll > lastScroll && currentScroll > 400) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
     });
 }
 
-// Interactions douces et professionnelles
-function initSmoothInteractions() {
-    // Hover effects subtils sur les feature cards
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach(card => {
-        card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-
+// Effets hover simples
+function initHoverEffects() {
+    // Cards légèrement soulevées au hover
+    const cards = document.querySelectorAll('.feature-card, .testimonial-card, .pricing-card');
+    cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-6px)';
-            this.style.boxShadow = '0 12px 28px rgba(0, 0, 0, 0.12)';
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
         });
 
         card.addEventListener('mouseleave', function() {
@@ -263,63 +202,15 @@ function initSmoothInteractions() {
         });
     });
 
-    // Hover subtil sur les stats
-    const stats = document.querySelectorAll('.stat-item');
-    stats.forEach(stat => {
-        stat.style.transition = 'all 0.35s ease-out';
-
-        stat.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-        });
-
-        stat.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-
-    // Buttons avec effet de lift professionnel
+    // Boutons avec effet simple
     const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
     buttons.forEach(btn => {
-        btn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-
         btn.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.15)';
         });
 
         btn.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '';
-        });
-    });
-
-    // Images avec zoom très subtil
-    const screenshots = document.querySelectorAll('.screenshot-item img');
-    screenshots.forEach(img => {
-        img.style.transition = 'all 0.5s ease-out';
-
-        img.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
-        });
-
-        img.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
-
-    // Testimonials avec effet professionnel
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    testimonials.forEach(card => {
-        card.style.transition = 'all 0.35s ease-out';
-
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(4px)';
-            this.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.1)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(0)';
-            this.style.boxShadow = '';
         });
     });
 }
@@ -330,99 +221,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition - 80; // Offset pour navbar
-            const duration = 800;
-            let start = null;
-
-            function animation(currentTime) {
-                if (start === null) start = currentTime;
-                const timeElapsed = currentTime - start;
-                const progress = Math.min(timeElapsed / duration, 1);
-
-                // Easing function
-                const ease = progress < 0.5
-                    ? 4 * progress * progress * progress
-                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-                window.scrollTo(0, startPosition + distance * ease);
-
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
-                }
-            }
-
-            requestAnimationFrame(animation);
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
 
-// Ajout de styles CSS professionnels
+// Styles CSS simples
 const style = document.createElement('style');
 style.textContent = `
-    /* Transitions globales douces */
-    * {
-        scroll-behavior: auto; /* Désactiver le scroll-behavior natif pour notre custom */
-    }
-
-    /* Amélioration du carousel */
-    .screenshot-item {
-        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    }
-
-    /* Effet subtil sur les cards */
-    .feature-card, .testimonial-card, .stat-item {
-        will-change: transform;
-    }
-
-    /* Boutons professionnels */
-    .btn {
-        will-change: transform, box-shadow;
-    }
-
-    /* Navbar fluide */
-    .navbar {
-        will-change: transform, background-color;
-    }
-
-    /* Désactiver les animations trop rapides sur mobile */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-    }
-
-    /* Performance optimization */
-    .screenshot-item img,
+    /* Fade in simple au scroll */
     .feature-card,
+    .testimonial-card,
     .stat-item,
-    .testimonial-card {
-        transform: translateZ(0);
-        backface-visibility: hidden;
+    .pricing-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .feature-card.visible,
+    .testimonial-card.visible,
+    .stat-item.visible,
+    .pricing-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Transitions douces sur les cards */
+    .feature-card,
+    .testimonial-card,
+    .pricing-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    }
+
+    /* Transitions douces sur les boutons */
+    .btn-primary,
+    .btn-secondary {
+        transition: transform 0.2s ease;
+    }
+
+    /* Navbar avec transition */
+    .navbar {
+        transition: box-shadow 0.3s ease;
+    }
+
+    /* Carousel simple */
+    .screenshot-item {
+        transition: opacity 0.3s ease;
+    }
+
+    .screenshot-item.active {
+        opacity: 1;
+    }
+
+    /* Performance */
+    .feature-card,
+    .testimonial-card,
+    .stat-item {
+        will-change: transform, opacity;
     }
 `;
 document.head.appendChild(style);
-
-// Préchargement des images pour éviter les flash
-window.addEventListener('load', () => {
-    const images = document.querySelectorAll('img[data-src]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
-    });
-});
-
-// Performance: Throttle scroll events
-function throttle(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
