@@ -104,7 +104,7 @@
       <div style="max-width: 700px; margin: 2.5rem auto; background: rgba(255,255,255,0.95); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
           <h3 style="font-size: 1.3rem; color: var(--text-dark); margin: 0;">Avancement du projet</h3>
-          <span style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">69%</span>
+          <span style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">65%</span>
         </div>
         <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 15px;">
           <div style="width: 65%; height: 100%; background: linear-gradient(90deg, var(--primary-color), var(--primary-light)); border-radius: 10px; transition: width 0.5s ease;"></div>
@@ -131,7 +131,7 @@
         <div class="audit-card"><h3>Sécurité</h3><p>8.5/10 — CSP, XSS, path traversal, sessions sécurisées.</p></div>
         <div class="audit-card"><h3>UX / UI</h3><p>9.5/10 — Boutons icônes, tooltips, 20 thèmes, interface optimisée.</p></div>
         <div class="audit-card"><h3>Fonctionnalités</h3><p>9.5/10 — Cycle complet, backups auto, rotation intelligente.</p></div>
-        <div class="audit-card"><h3>Qualité & Tests</h3><p>10/10 — 55 tests automatisés, 100% réussite.</p></div>
+        <div class="audit-card"><h3>Qualité & Tests</h3><p>7.5/10 — 55 tests automatisés, 96.4% réussite.</p></div>
         <div class="audit-card"><h3>Documentation</h3><p>8/10 — Notes détaillées, rapports HTML automatiques.</p></div>
         <div class="audit-card"><h3>Performance</h3><p>8.5/10 — Démarrage < 3s, rendu fluide, PDF < 2s.</p></div>
       </div>
@@ -141,8 +141,8 @@
           🏆 Certification de maturité : <span style="color: var(--primary-color);">NIVEAU PROFESSIONNEL CONFIRMÉ</span>
         </p>
         <p style="color: var(--text-gray); margin: 0;">
-          <strong>Recommandations clés :</strong> migration vers SQLite/PostgreSQL, API REST, rotation tokens automatique, 
-                                                  signature électronique et CI/CD.
+          <strong>Recommandations clés :</strong> suppression vulnérabilités critiques (BYPASS_AUTH, localStorage token),
+          migration vers SQLite/PostgreSQL, API REST, rotation tokens automatique, signature électronique et CI/CD.
         </p>
       </div>
     </div>
@@ -231,7 +231,7 @@
           </div>
 
           <div style="margin-bottom: 20px;">
-            <h4 style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 10px;">🔒 Améliorations de sécurité (Score: 5.5 → 8/10)</h4>
+            <h4 style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 10px;">🔒 Améliorations de sécurité (Score: 5.5 → 7.5/10)</h4>
             <ul style="color: var(--text-gray); line-height: 1.8;">
               <li><strong>Content Security Policy (CSP)</strong> - Bloque les scripts externes non autorisés</li>
               <li><strong>Protection XSS renforcée</strong> - TextFormatter.escapeHtml() améliorer (6 caractères protégés)</li>
@@ -462,7 +462,5 @@
   </footer>
 </body>
 </html>
-
-
 
 
