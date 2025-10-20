@@ -1,0 +1,115 @@
+════════════════════════════════════════════════════════════════════
+    AutoCalc OptiDevis v3.0.0 - Notes de Version
+    19 Octobre 2025
+════════════════════════════════════════════════════════════════════
+
+🎉 VERSION MAJEURE: GESTION CLIENTS & FOURNISSEURS
+
+AutoCalc OptiDevis évolue avec cette version 3.0.0 qui introduit deux
+modules complets de gestion des clients et fournisseurs, transformant
+votre logiciel de devis en véritable solution de gestion commerciale.
+
+
+════════════════════════════════════════════════════════════════════
+    ✨ NOUVEAUTÉS MAJEURES
+════════════════════════════════════════════════════════════════════
+
+🆕 MODULE CLIENTS
+   • Gestion complète de votre portefeuille clients
+   • 10 types de clients avec icônes visuelles
+   • Suivi des devis et factures par client
+   • Intégration dans le formulaire de devis
+   • Recherche et filtrage avancés
+
+🆕 MODULE FOURNISSEURS
+   • Centralisez vos fournisseurs
+   • 8 catégories avec icônes professionnelles
+   • Liaison avec votre catalogue de matériaux
+   • Suivi des délais de livraison
+   • Gestion des coordonnées complètes
+
+📦 CATALOGUE ENRICHI
+   • 93 matériaux et services (+681%)
+   • Produits de construction
+   • Services bâtiment, viticole, paysager
+   • Tarifs personnel qualifié
+   • Liaison automatique aux fournisseurs
+
+🔗 NAVIGATION INTELLIGENTE
+   • Navigation rapide entre modules liés
+   • Voir les devis d'un client en 1 clic
+   • Voir les matériaux d'un fournisseur en 1 clic
+   • Sélection client simplifiée dans les devis
+
+
+════════════════════════════════════════════════════════════════════
+    🔧 AMÉLIORATIONS
+════════════════════════════════════════════════════════════════════
+
+✅ Architecture modulaire (meilleure performance)
+✅ Système de cache intelligent
+✅ Backup amélioré avec suivi détaillé
+✅ Interface utilisateur modernisée
+✅ Recherche et filtrage optimisés
+
+
+════════════════════════════════════════════════════════════════════
+    🐛 CORRECTIONS
+════════════════════════════════════════════════════════════════════
+
+✅ Correction bug sauvegarde données clients
+✅ Correction erreur système de cache
+✅ Correction champs formulaire vides
+✅ Amélioration stabilité générale
+
+
+════════════════════════════════════════════════════════════════════
+    📊 CHIFFRES CLÉS
+════════════════════════════════════════════════════════════════════
+
+• 2 modules entièrement nouveaux
+• +712 lignes de code interface
+• 93 matériaux dans le catalogue
+• 12 fournisseurs pré-configurés
+• 100% compatible avec vos données existantes
+
+
+════════════════════════════════════════════════════════════════════
+    💡 POUR COMMENCER
+════════════════════════════════════════════════════════════════════
+
+1. Sauvegardez vos données actuelles
+2. Installez la version 3.0.0
+3. Découvrez les nouveaux onglets "Clients" et "Fournisseurs"
+4. Ajoutez vos clients existants
+5. Profitez des nouvelles fonctionnalités !
+
+⏱️ Formation: 15 minutes
+📚 Guide complet disponible dans CHANGELOG_v3.0.0.txt
+
+
+════════════════════════════════════════════════════════════════════
+    🔒 SÉCURITÉ & PERMISSIONS
+════════════════════════════════════════════════════════════════════
+
+✓ Gestion des droits vendeur/administrateur
+✓ Protection des données sensibles
+✓ Backup automatique avant modifications
+✓ Conformité RGPD
+
+
+════════════════════════════════════════════════════════════════════
+    📞 SUPPORT
+════════════════════════════════════════════════════════════════════
+
+Questions ou assistance?
+📧 Riisalth@hotmail.fr
+📄 Documentation complète incluse
+
+
+════════════════════════════════════════════════════════════════════
+
+Développé par David VIEY
+© 2025 AutoCalc OptiDevis - Tous droits réservés
+
+════════════════════════════════════════════════════════════════════

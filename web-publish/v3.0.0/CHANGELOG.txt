@@ -1,0 +1,402 @@
+═══════════════════════════════════════════════════════════════════════════════
+    AutoCalc OptiDevis - Notes de Version 3.0.0
+    Date de Release: 19 Octobre 2025
+    Migration depuis: Version 2.6.5
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 VERSION MAJEURE - GESTION CLIENTS & FOURNISSEURS
+
+Cette version 3.0.0 marque une évolution majeure d'AutoCalc OptiDevis avec
+l'introduction de deux modules complets de gestion des clients et fournisseurs,
+transformant l'application en un véritable système de gestion commerciale.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    📊 RÉSUMÉ EXÉCUTIF
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ 2 NOUVEAUX MODULES COMPLETS (Clients & Fournisseurs)
+✅ 93 matériaux dans le catalogue (+681% depuis v2.6.5)
+✅ Architecture modulaire (meilleure maintenabilité)
+✅ Système de types visuels avec icônes
+✅ Intégration intelligente entre modules
+✅ Corrections de bugs critiques
+✅ Système de backup amélioré
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🆕 NOUVELLES FONCTIONNALITÉS MAJEURES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. MODULE CLIENTS                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Gestion complète de votre portefeuille clients avec:
+
+📋 INFORMATIONS CLIENTS (9 champs)
+   • Nom du client (obligatoire)
+   • Contact principal
+   • Email
+   • Téléphone
+   • Adresse complète
+   • Type de client (avec icône)
+   • SIRET
+   • Notes libres
+
+🎨 TYPES DE CLIENTS (10 catégories avec icônes)
+   👤 Particulier          - Clients individuels
+   🔨 Artisan              - Artisans du bâtiment
+   🏢 Entreprise générale  - Entreprises de construction
+   🏙️ Promoteur            - Promoteurs immobiliers
+   📐 Architecte           - Cabinets d'architectes
+   🦺 Maître d'ouvrage     - Maîtres d'ouvrage publics/privés
+   🏛️ Collectivité         - Collectivités territoriales
+   🏭 Industriel           - Entreprises industrielles
+   🏪 Commerçant           - Commerces et enseignes
+   ❓ Autre                - Autres types de clients
+
+✨ FONCTIONNALITÉS
+   • Création, modification, suppression de clients
+   • Recherche multicritères (nom, email, téléphone)
+   • Filtrage par type de client
+   • Compteur de devis et factures par client
+   • Navigation rapide vers les devis/factures d'un client
+   • Intégration dans le formulaire de devis
+
+🔐 PERMISSIONS
+   • VENDEURS : Peuvent créer de nouveaux clients
+   • ADMIN : Peuvent modifier et supprimer les clients
+   • Gestion des accès selon le rôle utilisateur
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. MODULE FOURNISSEURS                                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Centralisez vos fournisseurs et leurs coordonnées:
+
+📋 INFORMATIONS FOURNISSEURS (11 champs)
+   • Nom du fournisseur (obligatoire)
+   • Contact principal
+   • Email
+   • Téléphone
+   • Adresse complète
+   • Type de fournisseur (avec icône)
+   • SIRET
+   • Délai de livraison (jours)
+   • Site web
+   • Notes libres
+
+🎨 TYPES DE FOURNISSEURS (8 catégories avec icônes)
+   🏬 Grossiste           - Vente en gros
+   📦 Distributeur        - Distribution de matériaux
+   🏢 Négoce              - Négoce de matériaux
+   ⚡ Spécialiste        - Spécialistes sectoriels
+   🏭 Fabricant           - Fabricants de matériaux
+   🌍 Importateur         - Importateurs
+   🏪 Centrale d'achat    - Centrales d'achat
+   ❓ Autre               - Autres types de fournisseurs
+
+✨ FONCTIONNALITÉS
+   • Création, modification, suppression de fournisseurs
+   • Recherche multicritères (nom, email, téléphone)
+   • Filtrage par type de fournisseur
+   • Compteur de matériaux par fournisseur
+   • Navigation rapide vers les matériaux d'un fournisseur
+   • Liaison automatique avec le catalogue
+
+🔐 PERMISSIONS
+   • MODE ADMIN UNIQUEMENT pour toutes les opérations
+   • Protection des données fournisseurs sensibles
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. CATALOGUE ENRICHI                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+📦 93 MATÉRIAUX & SERVICES (vs 12 en v2.6.5)
+   • 60 produits de construction (béton, plâtre, électricité...)
+   • 16 services bâtiment (maçonnerie, plâtrerie, peinture...)
+   • 7 services viticoles (taille, palissage, vendange...)
+   • 3 services paysagers (tonte, taille haies...)
+   • 7 types de personnel (plombier, électricien, maçon...)
+
+🔗 LIAISON FOURNISSEURS
+   • Chaque matériau peut être lié à un fournisseur
+   • Affichage du fournisseur dans la fiche produit
+   • Filtrage des matériaux par fournisseur
+   • Navigation bidirectionnelle fournisseur ↔ matériaux
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. INTÉGRATION INTELLIGENTE                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+🔄 NAVIGATION INTER-MODULES
+   • Depuis Clients → Voir tous les devis/factures du client
+   • Depuis Fournisseurs → Voir tous les matériaux du fournisseur
+   • Depuis Catalogue → Filtrer par fournisseur
+   • Depuis Devis → Sélectionner un client existant ou créer nouveau
+
+💡 SÉLECTION CLIENT DANS DEVIS (Améliorée)
+   • Liste déroulante de tous les clients existants
+   • Option "Saisie manuelle" pour devis ponctuels
+   • Bouton "+ Créer un nouveau client" dans le formulaire
+   • Auto-remplissage des coordonnées client
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🔧 AMÉLIORATIONS TECHNIQUES
+═══════════════════════════════════════════════════════════════════════════════
+
+🏗️ ARCHITECTURE MODULAIRE
+   Passage d'une architecture monolithique (app.js unique) à une architecture
+   modulaire avec séparation des responsabilités:
+
+   app/
+   ├── core/          - Classes de base (BaseModule)
+   ├── modules/       - Modules métier (clients, suppliers, materials...)
+   └── shared/        - Utilitaires partagés (cache, notifications...)
+
+   ✅ Meilleure maintenabilité
+   ✅ Tests unitaires simplifiés
+   ✅ Chargement modulaire
+   ✅ Extensibilité facilitée
+
+💾 SYSTÈME DE CACHE INTELLIGENT
+   • Nouveau système CacheKeys pour centraliser les clés de cache
+   • Invalidation en cascade (ex: modifier matériaux → invalide devis)
+   • TTL de 5 minutes pour toutes les entités
+   • Réduction de la charge serveur
+
+📊 SYSTÈME DE BACKUP AMÉLIORÉ
+   Messages de restauration détaillés:
+
+   Avant:  "12 matériaux restaurés"
+   Après:  "Restauration réussie:
+            • Catalogue: Oui
+            • Fournisseurs: 12
+            • Clients: 3
+            • Devis: 5
+            • Factures: 2"
+
+   ✅ Meilleure traçabilité
+   ✅ Audit détaillé
+   ✅ Confiance utilisateur
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🐛 CORRECTIONS DE BUGS
+═══════════════════════════════════════════════════════════════════════════════
+
+🔴 BUG CRITIQUE: IDs dupliqués dans le formulaire de devis
+   SYMPTÔME: Les champs email, téléphone, adresse ne se sauvegardaient pas
+   CAUSE: Plusieurs éléments HTML avec le même ID (#client-email, etc.)
+
+   CORRECTION:
+   • Formulaire client modal: #client-form-email, #client-form-phone...
+   • Formulaire devis: garde #client-email, #client-phone...
+   • Tous les modules mis à jour pour utiliser les bons IDs
+
+   ✅ STATUT: CORRIGÉ
+   📁 Fichiers: index.html, ClientsModule.js
+
+🔴 BUG: Méthode DataCache.remove() inexistante
+   SYMPTÔME: Erreur "DataCache.remove is not a function" lors de la
+             restauration de backup
+   CAUSE: Appel d'une méthode legacy qui n'existe plus
+
+   CORRECTION:
+   • Remplacement de DataCache.remove() par DataCache.invalidate()
+   • Mise à jour dans CacheKeys.js (3 occurrences)
+   • Mise à jour de la documentation
+
+   ✅ STATUT: CORRIGÉ
+   📁 Fichiers: app/shared/cache/CacheKeys.js
+
+🔴 BUG: Données client vides lors de modification
+   SYMPTÔME: Champs email, téléphone, adresse vides en mode édition
+   CAUSE: Conflit d'ID avec formulaire de devis
+
+   CORRECTION:
+   • Renommage des IDs du formulaire modal client
+   • Mise à jour des références JavaScript
+
+   ✅ STATUT: CORRIGÉ
+   📁 Fichiers: index.html, ClientsModule.js
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    📈 MÉTRIQUES DE CHANGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+CODE SOURCE
+   index.html:         1,951 lignes → 2,663 lignes  (+712 lignes, +36.5%)
+   main.js:            Handlers IPC ajoutés           (+4 nouveaux handlers)
+   Nouveaux modules:   ClientsModule.js              (50,409 octets)
+                       SuppliersModule.js            (44,516 octets)
+
+BASE DE DONNÉES
+   Matériaux:          12 → 93 entrées               (+681%)
+   Fournisseurs:       0 → 12 entrées                (NOUVEAU)
+   Clients:            0 → 3 entrées                 (NOUVEAU)
+   Taille data.json:   3.4 KB → 65 KB                (×19)
+
+ARCHITECTURE
+   Fichiers modules:   1 (app.js) → 15+ modules
+   Lignes de code:     ~8,000 → ~15,000+             (+87%)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🔄 GUIDE DE MIGRATION
+═══════════════════════════════════════════════════════════════════════════════
+
+POUR LES ADMINISTRATEURS
+
+1️⃣ AVANT LA MISE À JOUR
+   • Créer un backup complet via Paramètres > Sauvegardes
+   • Archiver le backup dans un lieu sûr
+   • Noter la version actuelle (2.6.5)
+
+2️⃣ INSTALLATION DE LA v3.0.0
+   • Fermer complètement l'application v2.6.5
+   • Installer la nouvelle version 3.0.0
+   • Au premier lancement, la migration automatique s'effectue
+
+3️⃣ VÉRIFICATIONS POST-MIGRATION
+   ✅ Onglet "Catalogue" → Vérifier que tous les matériaux sont présents
+   ✅ Onglet "Fournisseurs" → 12 fournisseurs pré-chargés visibles
+   ✅ Onglet "Clients" → Vide (normal, à remplir manuellement)
+   ✅ Créer un devis test → Vérifier le nouveau dropdown client
+
+4️⃣ CONFIGURATION INITIALE
+   • Aller dans "Clients" → Ajouter vos clients existants
+   • Aller dans "Fournisseurs" → Vérifier/compléter la liste
+   • Aller dans "Catalogue" → Lier les matériaux aux fournisseurs
+
+5️⃣ FORMATION UTILISATEURS
+   Temps estimé: 15 minutes par utilisateur
+   • Découverte onglet Clients (5 min)
+   • Découverte onglet Fournisseurs (5 min)
+   • Nouveau workflow de devis (5 min)
+
+
+COMPATIBILITÉ
+   ✅ Devis existants: 100% compatibles (aucune perte de données)
+   ✅ Factures existantes: 100% compatibles
+   ✅ Matériaux existants: Migration automatique des IDs
+   ⚠️ Backup anciens: Compatibles mais sans fournisseurs/clients
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    ⚠️ CHANGEMENTS BREAKING (Développeurs)
+═══════════════════════════════════════════════════════════════════════════════
+
+🔴 STRUCTURE data.json
+   AVANT: { materials: [...] }
+   APRÈS: { materials: [...], suppliers: [...], clients: [...] }
+
+   ACTION: Les scripts externes lisant data.json doivent être adaptés
+
+🔴 IDS MATÉRIAUX
+   AVANT: "id": 1 (number)
+   APRÈS: "id": "1" (string)
+
+   ACTION: Conversion automatique, mais comparer avec === "1" et non === 1
+
+🔴 MÉTHODE DE CACHE
+   AVANT: DataCache.remove('key')
+   APRÈS: DataCache.invalidate('key')
+
+   ACTION: Mise à jour des appels dans le code personnalisé
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🎯 PROCHAINES ÉTAPES (Roadmap v3.1.0)
+═══════════════════════════════════════════════════════════════════════════════
+
+📅 FONCTIONNALITÉS PLANIFIÉES
+
+🔜 Import/Export CSV
+   • Import massif de clients depuis Excel/CSV
+   • Import massif de fournisseurs depuis Excel/CSV
+   • Export de la base clients/fournisseurs
+
+🔜 Historique Client
+   • Vue chronologique des devis par client
+   • Vue chronologique des factures par client
+   • Statistiques CA par client
+
+🔜 Gestion des tarifs fournisseurs
+   • Historique des prix par fournisseur
+   • Alertes sur variations de prix
+   • Comparateur de prix entre fournisseurs
+
+🔜 Tableau de bord amélioré
+   • Widget "Meilleurs clients"
+   • Widget "Fournisseurs utilisés"
+   • Graphiques d'évolution CA par client
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    📞 SUPPORT & CONTACT
+═══════════════════════════════════════════════════════════════════════════════
+
+🆘 ASSISTANCE TECHNIQUE
+   Email:  Riisalth@hotmail.fr
+   Objet:  [AutoCalc v3.0.0] Votre problème
+
+📚 DOCUMENTATION
+   Manuel utilisateur: DOCS AutoCalc - OptiDevis/
+   Notes techniques:   CHANGELOG_v3.0.0_TECHNICAL.md
+
+🐛 SIGNALER UN BUG
+   1. Noter la version (3.0.0)
+   2. Décrire les étapes pour reproduire
+   3. Joindre capture d'écran si possible
+   4. Envoyer à Riisalth@hotmail.fr
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    ✅ CHECKLIST PRÉ-DISTRIBUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+AVANT DE DISTRIBUER AUX CLIENTS:
+
+□ Tests unitaires automatisés passent à 100%
+□ Tests d'intégration Clients module OK
+□ Tests d'intégration Fournisseurs module OK
+□ Test workflow complet: Fournisseur → Matériau → Client → Devis → Facture
+□ Test migration depuis v2.6.5 validé
+□ Test backup/restore avec nouvelles entités validé
+□ Documentation utilisateur mise à jour
+□ Tutoriels vidéo enregistrés (optionnel)
+□ Package de distribution créé (electron-builder)
+□ Signature numérique appliquée (optionnel)
+□ Tests sur machines propres (installation fraîche)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+    🏆 REMERCIEMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Cette version majeure a été réalisée grâce à:
+
+👨‍💻 Développement
+   David VIEY (Lead Developer)
+
+🧪 Tests
+   Équipe QA AutoCalc
+
+📝 Documentation
+   David VIEY
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Version du document: 1.0
+Date de création: 19 Octobre 2025
+Auteur: David VIEY <Riisalth@hotmail.fr>
+
+═══════════════════════════════════════════════════════════════════════════════
