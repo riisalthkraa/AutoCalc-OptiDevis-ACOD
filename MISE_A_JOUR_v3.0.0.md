@@ -2,7 +2,7 @@
 
 **Date:** 20 Octobre 2025
 **Version:** 3.0.0
-**Mise à jour par:** Claude Code (Assistant IA)
+**Mise à jour par:** VIEY David
 
 ---
 
