@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCalc OptiDevis v3.1.0 - Documentation Release</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .version {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .highlights {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+        .highlights h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .highlights ul {
+            list-style: none;
+            color: #78350f;
+        }
+        .highlights li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            color: #374151;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #c7d2fe;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .card-desc {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #6b7280;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .badge-success { background: #10b981; color: white; }
+        .badge-info { background: #3b82f6; color: white; }
+        .badge-warning { background: #f59e0b; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 AutoCalc OptiDevis</h1>
+        <div class="version">Version 3.1.0 - 22 octobre 2025</div>
+
+        <div class="highlights">
+            <h3>🎯 Nouveautés v3.1.0</h3>
+            <ul>
+                <li>Correction bug TVA "NaN%" pour tous les matériaux</li>
+                <li>8 nouveaux thèmes sombres professionnels</li>
+                <li>28 thèmes disponibles au total</li>
+                <li>100% compatible avec v3.0.0</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📊 Rapports Techniques</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🧪</div>
+                    <div class="card-title">Rapport de Tests</div>
+                    <div class="card-desc">140/140 tests automatisés Jest</div>
+                    <a href="test-report-v3.1.0.html" class="btn">Voir le Rapport</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-title">Audit de Qualité</div>
+                    <div class="card-desc">Sécurité 65% • Performance 85%</div>
+                    <a href="audit-report-v3.1.0.html" class="btn">Voir l'Audit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Documentation</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <div class="card-title">Notes de Release</div>
+                    <div class="card-desc">Nouveautés et corrections</div>
+                    <a href="RELEASE_NOTES.txt" class="btn">Lire les Notes</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <div class="card-title">Changelog Complet</div>
+                    <div class="card-desc">Historique détaillé v3.0.0 → v3.1.0</div>
+                    <a href="CHANGELOG.txt" class="btn">Voir le Changelog</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">ℹ️</div>
+                    <div class="card-title">Résumé de Version</div>
+                    <div class="card-desc">Vue d'ensemble rapide</div>
+                    <a href="VERSION_SUMMARY.txt" class="btn">Voir le Résumé</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-title">Notes de Sécurité</div>
+                    <div class="card-desc">Sécurité et bonnes pratiques</div>
+                    <a href="SECURITY_NOTES_v3.1.0.txt" class="btn">Voir la Sécurité</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="badges">
+                <span class="badge badge-success">Stable</span>
+                <span class="badge badge-info">v3.1.0</span>
+                <span class="badge badge-success">140 Tests</span>
+                <span class="badge badge-warning">8 Thèmes Sombres</span>
+                <span class="badge badge-info">Production Ready</span>
+            </div>
+            <p style="margin-top: 2rem;">© 2025 AutoCalc OptiDevis - Développé par David VIEY</p>
+            <p style="margin-top: 0.5rem; color: #9ca3af;">
+                Application de gestion de calculs et devis pour le bâtiment
+            </p>
+        </div>
+    </div>
+</body>
+</html>

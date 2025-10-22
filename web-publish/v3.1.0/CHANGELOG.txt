@@ -1,0 +1,120 @@
+═══════════════════════════════════════════════════════════════════
+  AUTOCALC OPTIDEVIS - CHANGELOG VERSION 3.1.0
+═══════════════════════════════════════════════════════════════════
+
+Date de release: 22 Octobre 2025
+Type de release: Mise à jour mineure (Bug fixes + Features)
+
+═══════════════════════════════════════════════════════════════════
+  CORRECTIONS DE BUGS
+═══════════════════════════════════════════════════════════════════
+
+[CRITIQUE] Correction affichage TVA "NaN%"
+  - Problème: Certains matériaux affichaient "NaN%" au lieu du taux de TVA
+  - Cause: Le système ne gérait qu'un seul format de TVA (tvaRate)
+  - Solution: Support des deux formats (tva: 20 et tvaRate: 0.20)
+  - Fichier modifié: app/modules/quotebuilder/QuoteBuilderModule.js
+  - Impact: Tous les matériaux affichent maintenant correctement leur TVA
+
+═══════════════════════════════════════════════════════════════════
+  NOUVELLES FONCTIONNALITÉS
+═══════════════════════════════════════════════════════════════════
+
+[INTERFACE] 8 nouveaux thèmes sombres professionnels
+
+Thèmes professionnels:
+  ✓ Midnight Professional (styles20.css) - Indigo/Violet élégant
+  ✓ Charcoal Elite (styles21.css) - Gris charbon avec accents dorés
+  ✓ Dark Ocean (styles22.css) - Bleu océan profond
+  ✓ Carbon Modern (styles23.css) - Noir high-tech avec vert néon
+
+Thèmes artistiques:
+  ✓ Obsidian Purple (styles24.css) - Violet/magenta avec effets lumineux
+  ✓ Forest Night (styles25.css) - Vert émeraude nature
+  ✓ Crimson Shadow (styles26.css) - Rouge/rose dramatique
+  ✓ Arctic Slate (styles27.css) - Bleu ciel/cyan professionnel
+
+Améliorations thèmes:
+  - Correction du thème "Minimal Nordic" pour meilleure lisibilité
+  - Contraste optimisé pour tous les thèmes sombres
+  - Support complet des composants Bootstrap
+  - Design responsive sur tous les écrans
+
+═══════════════════════════════════════════════════════════════════
+  AMÉLIORATIONS TECHNIQUES
+═══════════════════════════════════════════════════════════════════
+
+Tests et Qualité:
+  ✓ Mise à jour du script de pré-release pour v3.1.0
+  ✓ Correction validation des matériaux (type au lieu de category)
+  ✓ Mise à jour jest.config.js pour v3.1.0
+  ✓ 140 tests unitaires et d'intégration - tous passés
+  ✓ Taux de réussite pré-release: 98.4%
+
+Configuration:
+  ✓ Électron: v38.3.0
+  ✓ Bootstrap: v5.3.3
+  ✓ Node.js: Compatible v22+
+
+═══════════════════════════════════════════════════════════════════
+  FICHIERS MODIFIÉS
+═══════════════════════════════════════════════════════════════════
+
+Corrections:
+  - app/modules/quotebuilder/QuoteBuilderModule.js
+
+Nouveaux fichiers:
+  - assets/styles20.css (Midnight Professional)
+  - assets/styles21.css (Charcoal Elite)
+  - assets/styles22.css (Dark Ocean)
+  - assets/styles23.css (Carbon Modern)
+  - assets/styles24.css (Obsidian Purple)
+  - assets/styles25.css (Forest Night)
+  - assets/styles26.css (Crimson Shadow)
+  - assets/styles27.css (Arctic Slate)
+
+Fichiers mis à jour:
+  - app/shared/ui/themes/themes.json (28 thèmes au total)
+  - assets/styles6.css (Minimal Nordic - amélioré)
+  - package.json (v3.1.0)
+  - jest.config.js (v3.1.0)
+  - pre-release-check.js (v3.1.0)
+
+═══════════════════════════════════════════════════════════════════
+  MIGRATION DEPUIS v3.0.0
+═══════════════════════════════════════════════════════════════════
+
+Cette mise à jour est compatible avec v3.0.0.
+Aucune action requise pour la migration.
+
+Installation:
+  1. Télécharger AutoCalc OptiDevis Setup 3.1.0.exe
+  2. Fermer l'application si elle est ouverte
+  3. Lancer l'installateur
+  4. Suivre les instructions
+
+Les données existantes (devis, factures, clients) sont préservées.
+
+═══════════════════════════════════════════════════════════════════
+  STATISTIQUES
+═══════════════════════════════════════════════════════════════════
+
+Distribution:
+  - Taille de l'installateur: 95 MB
+  - Nombre de thèmes disponibles: 28 (9 sombres, 19 clairs/colorés)
+  - Tests passés: 140/140
+  - Score d'audit global: 72/100
+
+═══════════════════════════════════════════════════════════════════
+  NOTES DE DÉVELOPPEMENT
+═══════════════════════════════════════════════════════════════════
+
+Prochaines versions prévues:
+  - v3.2.0: Système de templates personnalisables
+  - v3.3.0: Export multi-formats (Excel, CSV)
+
+Bugs connus: Aucun
+
+═══════════════════════════════════════════════════════════════════
+  FIN DU CHANGELOG v3.1.0
+═══════════════════════════════════════════════════════════════════

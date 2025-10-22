@@ -1,0 +1,180 @@
+═══════════════════════════════════════════════════════════════════
+  AUTOCALC OPTIDEVIS v3.1.0 - NOTES DE SÉCURITÉ
+═══════════════════════════════════════════════════════════════════
+
+Version: 3.1.0
+Date: 22 Octobre 2025
+Niveau: MAINTENANCE
+
+═══════════════════════════════════════════════════════════════════
+  CHANGEMENTS DE SÉCURITÉ
+═══════════════════════════════════════════════════════════════════
+
+✅ AUCUN CHANGEMENT DE SÉCURITÉ
+
+Cette version ne modifie aucun aspect de la sécurité de l'application.
+Toutes les protections de la v3.0.0 restent actives et inchangées.
+
+═══════════════════════════════════════════════════════════════════
+  SÉCURITÉ HÉRITÉE DE v3.0.0
+═══════════════════════════════════════════════════════════════════
+
+🔒 AUTHENTIFICATION
+   ✓ Système admin/vendeur maintenu
+   ✓ Mot de passe bcrypt hashé
+   ✓ Sessions sécurisées
+   ✓ Rate limiting anti-brute-force (5 tentatives/15min)
+
+🔒 ELECTRON SECURITY
+   ✓ contextIsolation: true
+   ✓ nodeIntegration: false
+   ✓ Content-Security-Policy active
+   ✓ sandbox: true pour renderer
+
+🔒 PROTECTION DES DONNÉES
+   ✓ Pas d'accès réseau non autorisé
+   ✓ Fichiers stockés localement
+   ✓ Backup chiffré optionnel
+   ✓ Pas de télémétrie
+
+🔒 VALIDATION
+   ✓ Sanitization des entrées utilisateur
+   ✓ Protection XSS
+   ✓ Protection Path Traversal
+   ✓ Validation des types de données
+
+═══════════════════════════════════════════════════════════════════
+  AUDIT DE SÉCURITÉ v3.1.0
+═══════════════════════════════════════════════════════════════════
+
+Score de sécurité: 65/100
+
+POINTS FORTS:
+   ✓ Configuration Electron sécurisée
+   ✓ Authentification robuste
+   ✓ Pas de dépendances vulnérables critiques
+   ✓ Protection anti-XSS
+
+AMÉLIORATIONS RECOMMANDÉES:
+   ⚠ Implémenter rotation des mots de passe
+   ⚠ Ajouter 2FA (authentification à 2 facteurs)
+   ⚠ Logs d'audit plus détaillés
+   ⚠ Chiffrement des backups par défaut
+
+═══════════════════════════════════════════════════════════════════
+  DÉPENDANCES
+═══════════════════════════════════════════════════════════════════
+
+Aucune vulnérabilité critique détectée.
+
+Production:
+   • bcryptjs@2.4.3 - Hashing sécurisé ✅
+   • lowdb@3.0.0 - Base de données locale ✅
+   • winston@3.18.3 - Logging sécurisé ✅
+   • proper-lockfile@4.1.2 - Protection fichiers ✅
+
+Développement:
+   • electron@38.3.0 - Framework à jour ✅
+   • jest@30.2.0 - Tests ✅
+
+═══════════════════════════════════════════════════════════════════
+  CONFORMITÉ
+═══════════════════════════════════════════════════════════════════
+
+✅ RGPD
+   • Stockage local uniquement
+   • Pas de tracking
+   • Pas de données partagées
+   • Droit à l'effacement respecté
+
+✅ Bonnes Pratiques
+   • Principe du moindre privilège
+   • Défense en profondeur
+   • Validation stricte
+   • Logging des actions sensibles
+
+═══════════════════════════════════════════════════════════════════
+  RECOMMANDATIONS UTILISATEURS
+═══════════════════════════════════════════════════════════════════
+
+🔐 Bonnes pratiques:
+
+1. MOTS DE PASSE
+   → Utilisez un mot de passe fort (12+ caractères)
+   → Mélangez majuscules, minuscules, chiffres, symboles
+   → Ne partagez jamais vos identifiants
+   → Changez le mot de passe par défaut "admin123"
+
+2. BACKUPS
+   → Effectuez des backups réguliers
+   → Stockez les backups dans un emplacement sécurisé
+   → Testez vos restaurations
+   → Gardez plusieurs versions
+
+3. SYSTÈME
+   → Maintenez Windows à jour
+   → Utilisez un antivirus
+   → Activez le pare-feu Windows
+   → Évitez les clés USB inconnues
+
+4. DONNÉES SENSIBLES
+   → Ne stockez pas de données bancaires
+   → Soyez prudent avec les informations personnelles
+   → Respectez la confidentialité de vos clients
+   → Documentez vos accès
+
+═══════════════════════════════════════════════════════════════════
+  SIGNALEMENT DE VULNÉRABILITÉS
+═══════════════════════════════════════════════════════════════════
+
+Si vous découvrez une faille de sécurité:
+
+📧 Contact: Riisalth@hotmail.fr
+📋 Objet: [SÉCURITÉ] AutoCalc OptiDevis v3.1.0
+
+Informations à fournir:
+   • Description détaillée de la vulnérabilité
+   • Étapes de reproduction
+   • Impact potentiel
+   • Version affectée
+
+Nous nous engageons à:
+   ✓ Répondre sous 48h
+   ✓ Corriger les failles critiques en priorité
+   ✓ Vous tenir informé de l'avancement
+   ✓ Vous créditer si souhaité
+
+═══════════════════════════════════════════════════════════════════
+  HISTORIQUE DE SÉCURITÉ
+═══════════════════════════════════════════════════════════════════
+
+v3.1.0 (22/10/2025)
+   → Aucun changement de sécurité
+
+v3.0.0 (19/10/2025)
+   → Amélioration authentification
+   → Rate limiting ajouté
+   → CSP renforcée
+
+v2.6.5
+   → Base de sécurité initiale
+
+═══════════════════════════════════════════════════════════════════
+  CONCLUSION
+═══════════════════════════════════════════════════════════════════
+
+AutoCalc OptiDevis v3.1.0 maintient le même niveau de sécurité que
+v3.0.0. Cette version de maintenance n'introduit aucune nouvelle
+vulnérabilité et conserve toutes les protections existantes.
+
+Pour une utilisation optimale:
+✓ Changez le mot de passe par défaut
+✓ Effectuez des backups réguliers
+✓ Maintenez votre système à jour
+
+═══════════════════════════════════════════════════════════════════
+
+© 2025 AutoCalc OptiDevis - David VIEY
+Tous droits réservés
+
+═══════════════════════════════════════════════════════════════════

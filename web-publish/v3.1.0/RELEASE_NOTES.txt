@@ -1,0 +1,111 @@
+════════════════════════════════════════════════════════════════════
+    AutoCalc OptiDevis v3.1.0 - Notes de Version
+    22 Octobre 2025
+════════════════════════════════════════════════════════════════════
+
+🔧 VERSION MAINTENANCE: CORRECTIFS & NOUVEAUX THÈMES
+
+AutoCalc OptiDevis v3.1.0 apporte des corrections importantes et enrichit
+votre expérience avec 8 nouveaux thèmes sombres professionnels pour une
+personnalisation optimale de votre interface.
+
+
+════════════════════════════════════════════════════════════════════
+    🐛 CORRECTION CRITIQUE
+════════════════════════════════════════════════════════════════════
+
+🔴 BUG TVA "NaN%" CORRIGÉ
+   • Problème: Certains matériaux affichaient "NaN%" comme taux de TVA
+   • Impact: Affichage incorrect dans catalogue et devis
+   • Solution: Support complet des deux formats de TVA
+   • Résultat: 100% des matériaux affichent correctement leur TVA
+
+
+════════════════════════════════════════════════════════════════════
+    ✨ NOUVEAUTÉS
+════════════════════════════════════════════════════════════════════
+
+🎨 8 NOUVEAUX THÈMES SOMBRES PROFESSIONNELS
+
+COLLECTION PROFESSIONNELLE:
+   • Midnight Professional - Élégance indigo/violet
+   • Charcoal Elite - Sobriété avec accents dorés
+   • Dark Ocean - Profondeur océanique
+   • Carbon Modern - High-tech vert néon
+
+COLLECTION ARTISTIQUE:
+   • Obsidian Purple - Violet magenta lumineux
+   • Forest Night - Vert émeraude nature
+   • Crimson Shadow - Rouge dramatique
+   • Arctic Slate - Bleu ciel professionnel
+
+✓ Correction du thème "Minimal Nordic" existant
+✓ Contraste optimisé sur tous les thèmes sombres
+✓ 28 thèmes disponibles au total (9 sombres + 19 clairs/colorés)
+✓ Design responsive adapté à tous les écrans
+
+
+════════════════════════════════════════════════════════════════════
+    🔧 AMÉLIORATIONS TECHNIQUES
+════════════════════════════════════════════════════════════════════
+
+✅ Tests et qualité
+   • 140 tests unitaires - tous passés
+   • Taux de réussite pré-release: 98.4%
+   • Score d'audit global: 72/100
+
+✅ Compatibilité
+   • 100% compatible avec v3.0.0
+   • Aucune migration de données requise
+   • Electron v38.3.0
+
+
+════════════════════════════════════════════════════════════════════
+    📊 CHIFFRES CLÉS
+════════════════════════════════════════════════════════════════════
+
+• 8 nouveaux thèmes professionnels
+• 1 correction critique (TVA)
+• 28 thèmes disponibles au total
+• 95 MB - Installateur Windows
+• 100% rétrocompatible
+
+
+════════════════════════════════════════════════════════════════════
+    💡 POUR METTRE À JOUR
+════════════════════════════════════════════════════════════════════
+
+1. Fermez AutoCalc OptiDevis
+2. Téléchargez l'installateur v3.1.0
+3. Lancez l'installation
+4. Vos données sont préservées automatiquement
+5. Découvrez les nouveaux thèmes dans Paramètres!
+
+⏱️ Installation: 2 minutes
+📚 Changelog complet disponible dans CHANGELOG.txt
+
+
+════════════════════════════════════════════════════════════════════
+    🔒 SÉCURITÉ
+════════════════════════════════════════════════════════════════════
+
+✓ Aucun changement de sécurité
+✓ Toutes les protections v3.0.0 maintenues
+✓ Vos données restent sécurisées
+
+
+════════════════════════════════════════════════════════════════════
+    📞 SUPPORT
+════════════════════════════════════════════════════════════════════
+
+Questions ou assistance?
+📧 Riisalth@hotmail.fr
+📄 Documentation complète incluse
+
+
+════════════════════════════════════════════════════════════════════
+
+Développé par David VIEY
+© 2025 AutoCalc OptiDevis - Tous droits réservés
+
+════════════════════════════════════════════════════════════════════
